@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="canonical" href="https://site.domain/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="keyword1,keyword2">
+    <meta name="description" content="Search engine shows this text.">
+    <meta name="author" content="Name; e-mail: name@mail.domain">
+    <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 viewport-fit=cover">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/block-ui/jquery.blockUI.js"></script>
+    <script src="./js/jquery-04-popup-behavior.js"></script>
+    <title>jquery-04-popup-behavior</title>
+</head>
+
+<body>
+    <button type="button" class="js-dialog-button" tabindex="10">Dialogボタン</button>
+    <div class="js-dialog-contnt" style="display:none;">
+        <p>ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。</p>
+        <p>ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。</p>
+        <p>ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。</p>
+        <form>
+            <button type="button" class="js-ok" value="ok" tabindex="20">OK</button>
+            <button type="button" class="js-cancel" value="cancel" tabindex="30">キャンセル</button>
+        </form>
+    </div>
+    <button type="button" class="js-growl-button" tabindex="40">Growlボタン</button>
+    <div class="js-growl-contnt" style="display:none;">
+        グロールです。
+    </div>
+    <script>
+        $(() => {
+            const callback = (clickedSelector) => {
+                if (clickedSelector == '.js-ok') {
+                    alert("OK");
+                }
+            };
+            attachDialogBehavior('.js-dialog-button', '.js-dialog-contnt', 5000, callback);
+            attachGrowlBehavior('.js-growl-button', '.js-growl-contnt', 2000);
+        });
+    </script>
+</body>
+
+</html>

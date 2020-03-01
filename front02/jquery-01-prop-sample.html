@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="canonical" href="https://site.domain/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="keyword1,keyword2">
+    <meta name="description" content="Search engine shows this text.">
+    <meta name="author" content="Name; e-mail: name@mail.domain">
+    <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 viewport-fit=cover">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <title>jquery-01-prop-sample</title>
+</head>
+
+<body>
+    <button type="button" class="js-mode-changer" tabindex="100">ボタン</button>
+    <form method="POST">
+        <fieldset>
+            <input type="text" name="input1" class="js-c1" value="js-c1 prop('disabled') to attr, attr to prop('disabled')" tabindex="1" size="100"><br>
+            <input type="text" name="input2" class="js-c2" value="js-c2 prop('disabled') to prop, prop to prop('disabled')" tabindex="2" size="100"><br>
+            <input type="text" name="input3" class="js-c3" value="js-c3 prop('disabled') to data, data to prop('disabled')" tabindex="3" size="100"><br>
+            <input type="text" name="input4" class="js-c4" value="js-c4 prop('disabled') to attr, prop to prop('disabled')" tabindex="4" size="100"><br>
+            <input type="text" name="input5" class="js-c5" value="js-c5 prop('disabled') to attr, data to prop('disabled')" tabindex="5" size="100"><br>
+            <input type="text" name="input6" class="js-c6" value="js-c6 prop('disabled') to prop, data to prop('disabled')" tabindex="6" size="100"><br>
+            <input type="text" name="input7" class="js-c7" value="js-c7 prop('disabled') to data, prop to prop('disabled')" tabindex="7" size="100"><br>
+        </fieldset>
+    </form>
+    <script>
+        // ES2015
+        // jQuery 3.x
+        $(() => $('.js-mode-changer').on('click', () => {
+
+            // js-c1 prop('disabled') to attr, attr to prop('disabled')
+            {
+                const selector = '.js-c1';
+                const disabled = 'disabled';
+                const storeName = 'data-js-c1-store';
+                const jq = $(selector);
+                if (!jq.prop(disabled)) {
+                    jq.attr(storeName, jq.prop(disabled));
+                    jq.prop(disabled, true);
+                }
+                else {
+                    jq.prop(disabled, jq.attr(storeName));
+                }
+            }
+
+            // js-c2 prop('disabled') to prop, prop to prop('disabled')
+            {
+                const selector = '.js-c2';
+                const disabled = 'disabled';
+                const storeName = 'data-js-c2-store';
+                const jq = $(selector);
+                if (!jq.prop(disabled)) {
+                    jq.prop(storeName, jq.prop(disabled));
+                    jq.prop(disabled, true);
+                }
+                else {
+                    jq.prop(disabled, jq.prop(storeName));
+                }
+            }
+
+            // js-c3 prop('disabled') to data, data to prop('disabled')
+            {
+                const selector = '.js-c3';
+                const disabled = 'disabled';
+                const storeName = 'data-js-c3-store';
+                const jq = $(selector);
+                if (!jq.prop(disabled)) {
+                    jq.data(storeName, jq.prop(disabled));
+                    jq.prop(disabled, true);
+                }
+                else {
+                    jq.prop(disabled, jq.data(storeName));
+                }
+            }
+
+            // js-c4 prop('disabled') to attr, prop to prop('disabled')
+            {
+                const selector = '.js-c4';
+                const disabled = 'disabled';
+                const storeName = 'data-js-c4-store';
+                const jq = $(selector);
+                if (!jq.prop(disabled)) {
+                    jq.attr(storeName, jq.prop(disabled));
+                    jq.prop(disabled, true);
+                }
+                else {
+                    jq.prop(disabled, jq.prop(storeName));
+                }
+            }
+
+            // js-c5 prop('disabled') to attr, data to prop('disabled')
+            {
+                const selector = '.js-c5';
+                const disabled = 'disabled';
+                const storeName = 'data-js-c5-store';
+                const jq = $(selector);
+                if (!jq.prop(disabled)) {
+                    jq.attr(storeName, jq.prop(disabled));
+                    jq.prop(disabled, true);
+                }
+                else {
+                    jq.prop(disabled, jq.data(storeName));
+                }
+            }
+
+            // js-c6 prop('disabled') to prop, data to prop('disabled')
+            {
+                const selector = '.js-c6';
+                const disabled = 'disabled';
+                const storeName = 'data-js-c6-store';
+                const jq = $(selector);
+                if (!jq.prop(disabled)) {
+                    jq.prop(storeName, jq.prop(disabled));
+                    jq.prop(disabled, true);
+                }
+                else {
+                    jq.prop(disabled, jq.data(storeName));
+                }
+            }
+
+            // js-c7 prop('disabled') to data, prop to prop('disabled')
+            {
+                const selector = '.js-c7';
+                const disabled = 'disabled';
+                const storeName = 'data-js-c7-store';
+                const jq = $(selector);
+                if (!jq.prop(disabled)) {
+                    jq.data(storeName, jq.prop(disabled));
+                    jq.prop(disabled, true);
+                }
+                else {
+                    jq.prop(disabled, jq.prop(storeName));
+                }
+            }
+        }));
+    </script>
+</body>
+
+</html>

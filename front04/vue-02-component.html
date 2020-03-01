@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="canonical" href="https://site.domain/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="keyword1,keyword2">
+    <meta name="description" content="Search engine shows this text.">
+    <meta name="author" content="Name; e-mail: name@mail.domain">
+    <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 viewport-fit=cover">
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <title>vue-02-component</title>
+</head>
+
+<body>
+    <ol id="sample-7">
+        <component-1></component-1>
+        <component-1></component-1>
+        <component-1></component-1>
+    </ol>
+    <ol id="sample-8">
+        <component-2 v-for="item in groceryList" v-bind:key="item.id" v-bind:todo="item"></component-2>
+    </ol>
+    <script>
+        // ES2015
+        // vue.js 2.x
+        Vue.component('component-1', {
+            template: '<li>This is a todo<\/li>'
+        });
+        const sample7 = new Vue({
+            el: '#sample-7'
+        });
+        Vue.component('component-2', {
+            props: ['todo'],
+            template: '<li>{{ todo.id }} : {{ todo.text }}<\/li>'
+        });
+        // Let's type "sample8.groceryList.push({ text: 'New item' })" into "Chrome -> F12 -> Console"
+        const sample8 = new Vue({
+            el: '#sample-8',
+            data: {
+                groceryList: [{
+                        id: 0,
+                        text: 'Vegetables'
+                    },
+                    {
+                        id: 1,
+                        text: 'Cheese'
+                    },
+                    {
+                        id: 2,
+                        text: 'Whatever else humans are supposed to eat'
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

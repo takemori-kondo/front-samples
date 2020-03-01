@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="canonical" href="https://site.domain/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="keyword1,keyword2">
+    <meta name="description" content="Search engine shows this text.">
+    <meta name="author" content="Name; e-mail: name@mail.domain">
+    <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 viewport-fit=cover">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js/jquery-02-toggle-behavior.js"></script>
+    <title>jquery-02-toggle-behavior</title>
+</head>
+
+<body>
+    <div>
+        <button type="button" class="js-element-generator" tabindex="5">要素の動的生成</button>
+        <button type="button" class="js-toggle-button" tabindex="10">Toggleボタン</button>
+        <div class="js-toggle-target" style="display:none;">
+            <p>ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。</p>
+            <p>ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。</p>
+            <p>ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。ここは文章の段落です。</p>
+        </div>
+    </div>
+    <script>
+        // ES2015
+        // jQuery 3.x
+        $(() => {
+            attachToggleBehavior('.js-toggle-button', '.js-toggle-target', 'slow');
+            let num = 1;
+            $('.js-element-generator').on('click', () => {
+                const mod = num % 3;
+                const toggleType =
+                    mod == 1 ? "fade" :
+                    mod == 2 ? "slide" :
+                    "";
+                const ti = (10 + num);
+                const tb = 'js-toggle-button' + num;
+                const tt = 'js-toggle-target' + num;
+                const str = `
+                <button class="${tb}" type="button" tabindex="${ti}">${toggleType}Toggleボタン<\/button>
+                <div class="${tt}" style="display:none;">
+                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。<\/p>
+                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。<\/p>
+                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。<\/p>
+                <\/div>`;
+                $("#root").append(str);                
+                attachToggleBehavior("." + tb, "." + tt, 'slow', toggleType);
+                num++;
+            });
+        });
+    </script>
+</body>
+
+</html>

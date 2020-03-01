@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="canonical" href="https://site.domain/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="keyword1,keyword2">
+    <meta name="description" content="Search engine shows this text.">
+    <meta name="author" content="Name; e-mail: name@mail.domain">
+    <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="./css/html-sample.css">
+    <title>html-sample</title>
+</head>
+
+<body>
+    <div>
+        <header>
+            <div>サイトタイトル</div>
+        </header>
+        <main>
+            <section>
+                <header>
+                    <h1>(h1)記事タイトル</h1>
+                </header>
+                <div>
+                    <section>
+                        <header>
+                            <h2>(h2)グルーピングコンテンツ(使用頻度が低いものはコメントアウト)</h2>
+                        </header>
+                        <div>
+                            <p>(p)段落として使用します。
+                                <br>ここも同一の段落です。
+                                <br>ここも同一の段落です。
+                            </p>
+                            <!-- <address>この文書の提供者の情報</address> -->
+                            <!-- <hr> -->
+                            <!-- <pre>整形済み文</pre> -->
+                            <!-- <blockquote>引用(別段落扱い)</blockquote> -->
+                            <ol>
+                                <li>(ol/ul - li)列挙項目として使用します。</li>
+                                <li>(ol/ul - li)列挙項目として使用します。
+                                    <ul>
+                                        <li>(nested ol/ul - li)列挙項目として使用します。</li>
+                                        <li>(nested ol/ul - li)列挙項目として使用します。</li>
+                                        <li>(nested ol/ul - li)列挙項目として使用します。</li>
+                                    </ul>
+                                </li>
+                                <li>(ol/ul - li)列挙項目として使用します。</li>
+                            </ol>
+                            <dl>
+                                <dt>(dl-dt)説明リスト(旧定義リスト)のターム。</dt>
+                                <dd>(dl-dd)説明リストのタームに対する項目や詳細です。複数列挙可能です。</dd>
+                                <dd>(dl-dd)説明リストのタームに対する項目や詳細です。複数列挙可能です。</dd>
+                                <dd>(dl-dd)説明リストのタームに対する項目や詳細です。複数列挙可能です。</dd>
+                            </dl>
+                            <!-- <figure>
+                                <figcaption>挿絵、図のキャプション</figcaption>
+                            </figure> -->
+                            <div>(div)最も汎用的なまとまりを定義するために使用します。
+                                <br>実際には、Webデザインのために使用します。
+                                <br>従来ではdivだった部分の幾つかは、header, footer, main, 及びセクションコンテンツに置き換えることができます。
+                            </div>
+                        </div>
+                        <footer>
+                            <p>"(h2)グルーピングコンテンツ"に対するフッター</p>
+                        </footer>
+                    </section>
+                    <section>
+                        <header>
+                            <h2>テキスト修飾要素(使用頻度が低いものはコメントアウト)</h2>
+                        </header>
+                        <div>
+                            <p>ここから説明が始まります。
+                                <br>(br)改行を明示します。
+                                <br>(a)リンクを設定します。<a href="https://www.w3.org/TR/html52/semantics.html#semantics">W3C公式サイトのHTML5.2(4. The elements of HTML)</a>
+                                <br>(em)有無によって<em>意味</em>が変わってくるニュアンスや強勢を明示する際に使用します。(*)「メイリオ」では、日本語は斜体になりません。
+                                <br>(strong)<strong>重要であること明示する</strong>際に使用します。
+                                <!-- <br>(small)<small>細則・免責事項</small>
+                                <br>(s)一時的な現在とは異なる情報。<s>定価：10000円</s>
+                                <br>(cite)<cite>作品名</cite>
+                                <br>(q)<q>引用</q>
+                                <br>(dfn)<dfn>固有名詞</dfn>
+                                <br>(abbr)略語<abbr title="Hyper Text Markup Language">HTML</abbr>
+                                <br>(ruby)<ruby>今日<rt>きょう</ruby>
+                                <br>(time)<time>2018-02-19 23:59:59+09:00</time>
+                                <br>(code)<code>var x = 0;</code>
+                                <br>(var)<var>X</var>個
+                                <br>(samp)コンピュータの出力内容など。<samp>404 Not Found</samp>
+                                <br>(kbd)キーボード入力<kbd>ctrl + alt + delete</kbd>
+                                <br>(sub)下付き表現が必須な形式に対する利用 H<sub>2</sub>O
+                                <br>(sup)上付き表現が必須な形式に対する利用 E = mc<sup>2</sup> -->
+                                <br>(i)物語などで、特殊な語りなど。<i>神は言っている、ここで死ぬ運命ではないと。</i>(*)「メイリオ」では、日本語は斜体になりません。
+                                <br>(b)他の修飾要素がどれも適切でないが、太字にしたい場合。<b>ここは太字</b>
+                                <br>(u)他の修飾要素がどれも適切でないが、下線を引きたい場合。<u>ここは下線</u>
+                                <br>(mark)マーカーのような効果が欲しい場合。<mark>マーカーで引かれた</mark>
+                                <!-- <br>(dbi)アラビア書式の影響範囲を設定します。犬はアラビア語で<bdi>الكلب</bdi>です。
+                                <br>(dbo)書式方向を強制的に指定します。<bdo dir="rtl">日本も戦前は右から左です</bdo> -->
+                                <br><span>(span)主にclass属性と併用することで、汎用的な文字の修飾を行うために使用します。</span>
+                                <!-- <br>(wbr)改行しても良い箇所<wbr>であることを示します。
+                                <br><del>(del)恒久的な旧情報を表します。</del>
+                                <br><ins>(ins)恒久的な追記内容を表します。</ins> -->
+                                <br>ここまで全てP要素です。
+                            </p>
+                        </div>
+                        <footer>
+                            <p>"テキスト修飾要素"に対するフッター</p>
+                        </footer>
+                    </section>
+                    <section>
+                        <header>
+                            <h2>埋め込みコンテンツ</h2>
+                        </header>
+                        <div>
+                            <!-- 64から256で必要なサイズを自動で選びます。また、sizesでデバイス幅640px以下は64px固定、それ以上は10vw=1/10デバイス幅を指定しています。-->
+                            <!-- 計算上、PC（等倍ディスプレイ）でブラウザを幅640以下にしておくか、320以下のdevice-pixel-ratio=2で64が使用されます。 -->
+                            <img src="./img/sample-image-256.png" srcset="./img/sample-image-256.png 256w, ./img/sample-image-128.png 128w, ./img/sample-image-64.png 64w"
+                                sizes="(max-width: 640px) 64px, 10vw" alt="リスのアイコンですたい。@icooon mono">
+                            <br>リスのアイコンですたい。
+                            <br>画像提供元：<a href="http://icooon-mono.com/">icooon mono</a>
+                        </div>
+                        <div>
+                            <iframe title="iframe demo1" sandbox="allow-same-origin" srcdoc="ここはsandboxを有効にしたiframe内のテキストです。"></iframe>
+                            <br><iframe title="iframe demo2" width="720" height="405" style="border:0" allowfullscreen
+                                src="https://www.youtube.com/embed/M7lc1UVf-VE"></iframe>
+                            <br><iframe title="iframe demo3" width="720" height="405" style="border:0" allowfullscreen
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5630602636684!2d139.77399941559403!3d35.712368535870304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188e9e93d3060b%3A0x6c89b36d7b4f9244!2z5LiK6YeO6aeF!5e0!3m2!1sja!2sjp!4v1521462070252"></iframe>
+                        </div>
+                        <div>
+                            <embed title="embed demo" width="160" height="40" quality="high" allowscriptaccess="samedomain" allowfullscreen="false"
+                                pluginspage="http://get.adobe.com/jp/flashplayer/" type="application/x-shockwave-flash" src="./flash/sheetclock_40.swf"
+                                FlashVars="textColor=ffffff">
+                            <br>sheetclock
+                            <br>Flash提供元：<a href="http://www.katsulabo.com">無料flash素材のkatsulabo</a>
+                        </div>
+                        <div>
+                            <audio title="audio demo" controls loop src="./sound/tw083.mp3">正常に音声ファイルが読み込めません。</audio>
+                            <br>♪魔法のクッキング
+                            <br>音楽提供元：<a href="http://musmus.main.jp/">フリーBGM・音楽素材MusMus</a>
+                        </div>
+                        <footer>
+                            <p>"埋め込みコンテンツ"に対するフッター</p>
+                        </footer>
+                    </section>
+                    <section>
+                        <header>
+                            <h2>表形式</h2>
+                        </header>
+                        <div>
+                            <table>
+                                <tr>
+                                    <th>端末</th>
+                                    <th>ブラウザピクセル</th>
+                                    <th>window.devicePixelRatio</th>
+                                </tr>
+                                <tr>
+                                    <td>iPhone 5-SE</td>
+                                    <td>320x568</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>iPhone 6-8</td>
+                                    <td>375x667</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>iPhone 6-8</td>
+                                    <td>414x736</td>
+                                    <td>2.61</td>
+                                </tr>
+                                <tr>
+                                    <td>iPad 3rd-Air2-5th, Pro(9.7inch), Mini 2-4</td>
+                                    <td>768x1024</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>PC(FHD)</td>
+                                    <td>1920x1080 - a</td>
+                                    <td>2</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <footer>
+                            <p>"表形式"に対するフッター</p>
+                        </footer>
+                    </section>
+                    <section>
+                        <header>
+                            <h2>Formsコンテンツ</h2>
+                        </header>
+                        <div>
+                            <form method="POST">
+                                <fieldset>
+                                    <legend>入力項目</legend>
+                                    <input type="hidden" name="mode" value="new">
+                                    <div class="input required">
+                                        <label for="name" class="lbl">名前</label>
+                                        <input type="text" name="name" id="name" class="txt" value="" tabindex="10" required="required" placeholder="名前を入れてください">
+                                    </div>
+                                    <div class="input email required">
+                                        <label for="email" class="lbl">メール</label>
+                                        <input type="email" name="email" id="email" class="txt" value="" tabindex="20" required="required" placeholder="メールアドレスを入れてください">
+                                    </div>
+                                    <div class="input radio">
+                                        <label for="sex-1" class="lbl">性別</label>
+                                        <input type="radio" name="sex" id="sex-1" value="男" tabindex="30" checked>
+                                        <label for="sex-1">男</label>
+                                        <input type="radio" name="sex" id="sex-2" value="女" tabindex="40">
+                                        <label for="sex-2">女</label>
+                                    </div>
+                                    <div class="input select">
+                                        <label for="inquiry-type" class="lbl">お問い合わせ種類</label>
+                                        <select name="inquiry-type" id="inquiry-type" class="slc" tabindex="50">
+                                            <option value="お問い合わせ種類1" selected="selected">お問い合わせ種類1</option>
+                                            <option value="お問い合わせ種類2">お問い合わせ種類2</option>
+                                            <option value="お問い合わせ種類3">お問い合わせ種類3</option>
+                                        </select>
+                                    </div>
+                                    <div class="input textarea required">
+                                        <label for="inquiry-details" class="lbl">お問い合わせ内容</label>
+                                        <textarea name="inquiry-details" id="inquiry-details" class="txt" cols="30" rows="10" tabindex="60" accesskey="t" required="required">例：〇〇サービスの××について</textarea>
+                                    </div>
+                                </fieldset>
+                                <button type="submit" tabindex="70" accesskey="s">送信</button>
+                            </form>
+                        </div>
+                        <footer>
+                            <p>"Formsコンテンツ"に対するフッター</p>
+                        </footer>
+                    </section>
+                    <section>
+                        <header>
+                            <h2>インタラクティブコンテンツ</h2>
+                        </header>
+                        <div>
+                            <details>
+                                <summary>Box Model</summary>
+                                <ul>
+                                    <li>margin。他の要素と+なら重複、-なら相殺する。</li>
+                                    <li>border。</li>
+                                    <li>padding。</li>
+                                    <li>content。デフォルトでは、width等で指定されるのはこの部分。</li>
+                                    <li>box-sizing="border-box"。width等がborder+padding+contentに対して指定される。</li>
+                                </ul>
+                            </details>
+                            <details>
+                                <summary>View Port</summary>
+                                <ul>
+                                    <li>モバイル向けの仕組み。デバイス幅全体に対して、指定されたサイズであるかのように縮小拡大される。</li>
+                                    <li>PCブラウザでは無視される。</li>
+                                    <li>iPhoneで未指定の場合、980px。</li>
+                                    <li>下記指定で、デバイスCSSピクセル等倍
+                                        <br>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"&gt;</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <footer>
+                            <p>"インタラクティブコンテンツ"に対するフッター</p>
+                        </footer>
+                    </section>
+                </div>
+                <footer>
+                    <p>h1に対するフッター</p>
+                </footer>
+            </section>
+        </main>
+        <footer>
+            <div>サイト全体に対するフッター</div>
+        </footer>
+    </div>
+</body>
+
+</html>
