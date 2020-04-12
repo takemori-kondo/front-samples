@@ -1,7 +1,8 @@
 // ES2015
 
-"use strict";
+'use strict';
 
-function helloWorld() {
-    window.confirm("hello world");
+/* exported helloWorld */
+const helloWorld = function() {
+    window.confirm('hello world');
 }
