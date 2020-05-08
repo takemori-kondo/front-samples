@@ -2,11 +2,26 @@
 
 "use strict";
 
+// debug mode?
 const IS_DEBUG = false;
-const FPS = 60;
-const SCREEN_WIDTH = 640;
-const SCREEN_HEIGHT = 360;
 
+// key constants
+const KEY_SPACE = 32;
+// const KEY_Z = 90;
+// const KEY_X = 88;
+const KEY_LEFT_ = 37;
+// const KEY_UP___ = 38;
+const KEY_RIGHT = 39;
+// const KEY_DOWN_ = 40;
+const KEY_ENTER = 13;
+
+// canvas settings
+const CANVAS_SCREEN_WIDTH = 640;
+const CANVAS_SCREEN_HEIGHT = 360;
+const CANVAS_CONTEXT_TYPE = '2d';
+const DEFAULT_FONT = '12px Consolas, monospace';
+
+// game settings
 const GROUND = 50;
 const PLAYER_GROUND_TOUCH_OFFSET = 21;
 const PLAYER_SPEED_X = 2;
@@ -14,25 +29,18 @@ const PLAYER_SPEED_Y = 9;
 const GRAVITY = -0.3;
 const ZOO_LOOP = 11000;
 const FEET_UP = 0.6;
-const FONT = '12px Consolas, monospace';
 const GAME_OVER_FONT = '64px Consolas, monospace';
 const GAME_OVER_SUB_FONT = '24px Consolas, monospace';
 
-const KEY_SPACE = 32;
-const KEY_Z = 90;
-const KEY_X = 88;
-const KEY_LEFT_ = 37;
-const KEY_UP___ = 38;
-const KEY_RIGHT = 39;
-const KEY_DOWN_ = 40;
-const KEY_ENTER = 13;
-
-let g_highScore = 0;
-let g_inputKeyBuffer = [];
-let g_canvas = null;
+// system & input parameters
 let g_ctx = null;
+let g_inputKeyBuffer = [];
 document.onkeydown = (e) => g_inputKeyBuffer[e.keyCode] = true;
 document.onkeyup = (e) => g_inputKeyBuffer[e.keyCode] = false;
+let drawingErrorOccurred = false;
+
+// game parameters
+let g_highScore = 0;
 
 class Collision {
     constructor(offsetX, offsetY, radius) {
@@ -62,7 +70,7 @@ class Mover {
 
     draw() {
         try {
-            g_ctx.drawImage(this.img, this.x + this.imgOffsetX, SCREEN_HEIGHT - this.y - this.imgOffsetY);
+            g_ctx.drawImage(this.img, this.x + this.imgOffsetX, CANVAS_SCREEN_HEIGHT - this.y - this.imgOffsetY);
             if (IS_DEBUG) {
                 const tmpAlpha = g_ctx.globalAlpha;
                 const tmpStroke = g_ctx.strokeStyle;
@@ -72,7 +80,7 @@ class Mover {
                 g_ctx.fillStyle = 'rgb(0, 128, 128)';
                 for (const collision of this.collisions) {
                     g_ctx.beginPath();
-                    g_ctx.arc(this.x + collision.offsetX, SCREEN_HEIGHT - this.y - collision.offsetY, collision.radius, 0, Math.PI*2, false);
+                    g_ctx.arc(this.x + collision.offsetX, CANVAS_SCREEN_HEIGHT - this.y - collision.offsetY, collision.radius, 0, Math.PI*2, false);
                     g_ctx.fill();
                 }
                 g_ctx.globalAlpha = tmpAlpha;
@@ -80,6 +88,11 @@ class Mover {
                 g_ctx.fillStyle = tmpFill;
             }
         } catch (e) {
+            if (!drawingErrorOccurred) {
+                drawingErrorOccurred = true;
+                console.error(e);
+                console.log(JSON.stringify(this));
+            }
         }
     }
 }
@@ -120,8 +133,8 @@ class Ground extends Mover {
 
     draw() {
         g_ctx.beginPath();
-        g_ctx.moveTo(this.x, SCREEN_HEIGHT - this.y);
-        g_ctx.lineTo(this.x + SCREEN_WIDTH, SCREEN_HEIGHT - this.y);
+        g_ctx.moveTo(this.x, CANVAS_SCREEN_HEIGHT - this.y);
+        g_ctx.lineTo(this.x + CANVAS_SCREEN_WIDTH, CANVAS_SCREEN_HEIGHT - this.y);
         g_ctx.closePath();
         g_ctx.stroke();
     }
@@ -144,10 +157,10 @@ class FrontEnd extends Mover {
     draw() {
         const lpadScore = ("     " + this.feet.toFixed(0)).slice(-5);
         const lpadHighS = ("     " + g_highScore.toFixed(0)).slice(-5);
-        g_ctx.fillText("score    " + lpadScore + " feet", 500, SCREEN_HEIGHT - 16);
-        g_ctx.fillText("highscore" + lpadHighS + " feet", 500, SCREEN_HEIGHT - 4);
-        g_ctx.fillText("space  : jump", 4, SCREEN_HEIGHT - 16);
-        g_ctx.fillText("<-, -> : move", 4, SCREEN_HEIGHT - 4);
+        g_ctx.fillText("score    " + lpadScore + " feet", 500, CANVAS_SCREEN_HEIGHT - 16);
+        g_ctx.fillText("highscore" + lpadHighS + " feet", 500, CANVAS_SCREEN_HEIGHT - 4);
+        g_ctx.fillText("space  : jump", 4, CANVAS_SCREEN_HEIGHT - 16);
+        g_ctx.fillText("<-, -> : move", 4, CANVAS_SCREEN_HEIGHT - 4);
     }
 }
 
@@ -160,17 +173,17 @@ class LoopingBackGround extends Mover {
 
     move() {
         super.move();
-        if (this.x <= -SCREEN_WIDTH / 2) {
-            this.x += SCREEN_WIDTH * 2
+        if (this.x <= -CANVAS_SCREEN_WIDTH / 2) {
+            this.x += CANVAS_SCREEN_WIDTH * 2
         }
-        if (this.x >= SCREEN_WIDTH + SCREEN_WIDTH / 2) {
-            this.x -= SCREEN_WIDTH * 2
+        if (this.x >= CANVAS_SCREEN_WIDTH + CANVAS_SCREEN_WIDTH / 2) {
+            this.x -= CANVAS_SCREEN_WIDTH * 2
         }
-        if (this.y <= -SCREEN_HEIGHT / 2) {
-            this.y += SCREEN_HEIGHT * 2
+        if (this.y <= -CANVAS_SCREEN_HEIGHT / 2) {
+            this.y += CANVAS_SCREEN_HEIGHT * 2
         }
-        if (this.y >= SCREEN_HEIGHT + SCREEN_HEIGHT / 2) {
-            this.y -= SCREEN_HEIGHT * 2
+        if (this.y >= CANVAS_SCREEN_HEIGHT + CANVAS_SCREEN_HEIGHT / 2) {
+            this.y -= CANVAS_SCREEN_HEIGHT * 2
         }
     }
 }
@@ -185,7 +198,7 @@ class Animal extends Mover {
 
     move() {
         super.move();
-        if (this.x <= -SCREEN_WIDTH / 2) {
+        if (this.x <= -CANVAS_SCREEN_WIDTH / 2) {
             this.x += ZOO_LOOP
         }
     }
@@ -315,7 +328,7 @@ class StageScene {
         }
 
         // Draw Process
-        g_ctx.clearRect(0, 0, g_canvas.width, g_canvas.height);
+        g_ctx.clearRect(0, 0, CANVAS_SCREEN_WIDTH, CANVAS_SCREEN_HEIGHT);
         this.player.draw();
         this.ground.draw();
         this.frontEnd.draw();
@@ -326,22 +339,29 @@ class StageScene {
             g_ctx.fillText("Enter : restart", 210, 230);
             g_ctx.font = GAME_OVER_FONT;
             g_ctx.fillText("GAME OVER", 150, 200);
-            g_ctx.font = FONT;
+            g_ctx.font = DEFAULT_FONT;
         }
     }
 }
 
+/* exported boot */
 function boot(canvasId) {
 
-    g_canvas = document.getElementById(canvasId);
-    g_ctx = g_canvas.getContext('2d');
-    g_ctx.font = FONT;
-    const raf = window.requestAnimationFrame;
+    // initialize canvas
+    let canvas = document.getElementById(canvasId);
+    canvas.width = CANVAS_SCREEN_WIDTH;
+    canvas.height = CANVAS_SCREEN_HEIGHT;
+    g_ctx = canvas.getContext(CANVAS_CONTEXT_TYPE);
+    g_ctx.font = DEFAULT_FONT;
+
+    // initialize stage
     const stage = new StageScene();
     stage.restart();
+
+    // requestAnimationFrame loop
     const loop = () => {
         stage.update();
-        raf(loop);
+        window.requestAnimationFrame(loop);
     };
-    raf(loop);
+    window.requestAnimationFrame(loop);
 }
