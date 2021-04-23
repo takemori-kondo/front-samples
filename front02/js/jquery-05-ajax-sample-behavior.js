@@ -12,7 +12,7 @@ function attachConnpassEventGetterBehavior(buttonSelector, targetSelector) {
         });
         const queryString = getConnpassRequestQueryString('東京', 3, 2, 100);
         $.ajax({
-                url: 'http://connpass.com/api/v1/event/?' + queryString,
+                url: 'https://connpass.com/api/v1/event/?' + queryString,
                 type: 'GET',
                 dataType: 'jsonp',
                 jsonp: 'callback'
