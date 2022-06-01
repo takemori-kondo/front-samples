@@ -15,14 +15,27 @@
   <script src="./node_modules/popper.js/dist/popper.min.js"></script>
   <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <title>Bootstrap content root</title>
+  <style>
+    .selector-for-some-widget {
+      box-sizing: content-box;
+    }
+  </style>
 </head>
 
 <body>
   <ul>
     <li><a href="./html/bootstrap-card.html">bootstrap-card.html</a></li>
     <li><a href="./html/bootstrap-container.html">bootstrap-container.html</a></li>
-    <li><a href="./html/bootstrap-pagination.html">pagination.html</a></li>
+    <li><a href="./html/bootstrap-margin-and-padding.html">bootstrap-margin-and-padding.html</a></li>
+    <li><a href="./html/bootstrap-pagination.html">bootstrap-pagination.html</a></li>
   </ul>
+  <div>
+    <h1>Bootstrapをロードした時の効果</h1>
+    <div>全てのbox-sizingはborder-boxになる。</div>
+    <div>Reboot.cssが適用される。</div>
+    <div>各種定義済みのclassが使用可能。</div>
+    <div>marginやpaddingの定義済みclassを利用することも可能だが、厳密制御する場合は自作推奨。</div>
+  </div>
 </body>
 
 </html>
