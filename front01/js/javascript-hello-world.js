@@ -3,6 +3,6 @@
 'use strict';
 
 /* exported helloWorld */
-const helloWorld = function() {
-    window.confirm('hello world');
+const helloWorld = function () {
+  window.confirm('hello world');
 }
