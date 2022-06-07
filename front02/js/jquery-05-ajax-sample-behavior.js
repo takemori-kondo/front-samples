@@ -1,9 +1,10 @@
-// ES2015
+// ES2018
 // jQuery 3.x
 // jquery.blockUI.js
 
 "use strict";
 
+/* exported attachConnpassEventGetterBehavior */
 function attachConnpassEventGetterBehavior(buttonSelector, targetSelector) {
   // https://connpass.com/about/api/
   $(buttonSelector).on('click', () => {

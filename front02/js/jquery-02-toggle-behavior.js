@@ -1,8 +1,9 @@
-// ES2015
+// ES2018
 // jQuery 3.x
 
 "use strict";
 
+/* exported attachToggleBehavior */
 function attachToggleBehavior(buttonSelector, targetSelector, duration = 'normal', toggleType = 'toggle') {
   $(buttonSelector).on('click', () => {
     const jqButton = $(buttonSelector);

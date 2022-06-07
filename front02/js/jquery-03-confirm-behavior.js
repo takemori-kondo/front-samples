@@ -1,8 +1,9 @@
-// ES2015
+// ES2018
 // jQuery 3.x
 
 "use strict";
 
+/* exported attachConfirmBehavior */
 function attachConfirmBehavior(confirmModeCssClass, modeSelector, inputContainerSelector, hidesEmpty = true) {
   const isConfirm = $(modeSelector).val() == 'confirm';
   if (hidesEmpty) {

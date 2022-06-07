@@ -1,9 +1,10 @@
-// ES2015
+// ES2018
 // jQuery 3.x
 // jquery.blockUI.js
 
 "use strict";
 
+/* exported attachDialogBehavior */
 function attachDialogBehavior(buttonSelector, contentSelector, timeout = null, callback = null, innerButtonSelectors = ['.js-ok', '.js-cancel']) {
   $(buttonSelector).on('click', () => {
     $.blockUI({
@@ -24,6 +25,7 @@ function attachDialogBehavior(buttonSelector, contentSelector, timeout = null, c
   }
 }
 
+/* exported attachGrowlBehavior */
 function attachGrowlBehavior(buttonSelector, contentSelector, timeout = null) {
   $(buttonSelector).on('click', () => {
     $.blockUI({

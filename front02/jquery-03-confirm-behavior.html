@@ -56,8 +56,9 @@
     <button type="submit" tabindex="70" accesskey="s">送信</button>
   </form>
   <script>
-    // ES2015
+    // ES2018
     // jQuery 3.x
+    /* global attachConfirmBehavior */
     $(() => $('.js-mode-changer').on('click', () => {
       const jqMode = $('.js-mode');
       const nextValue = jqMode.val() == 'confirm' ? 'new' : 'confirm';
