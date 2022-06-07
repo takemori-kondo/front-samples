@@ -1,8 +1,8 @@
-// ES2015
+// ES2018
 
 'use strict';
 
 /* exported helloWorld */
-const helloWorld = function () {
+const helloWorld = () => {
   window.confirm('hello world');
 }
