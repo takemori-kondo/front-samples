@@ -1,6 +1,7 @@
 // ES2018
 // jQuery 3.x
 // jquery.blockUI.js
+/* eslint no-unused-vars: ["error", { "args": "none" }]*/
 
 "use strict";
 

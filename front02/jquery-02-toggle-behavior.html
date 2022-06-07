@@ -42,12 +42,12 @@
         const tb = 'js-toggle-button' + num;
         const tt = 'js-toggle-target' + num;
         const str = `
-                <button class="${tb}" type="button" tabindex="${ti}">${toggleType}Toggleボタン<\/button>
+                <button class="${tb}" type="button" tabindex="${ti}">${toggleType}Toggleボタン</button>
                 <div class="${tt}" style="display:none;">
-                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。<\/p>
-                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。<\/p>
-                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。<\/p>
-                <\/div>`;
+                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。</p>
+                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。</p>
+                    <p>動的に追加された文章です。動的に追加された文章です。動的に追加された文章です。</p>
+                </div>`;
         $("#root").append(str);
         attachToggleBehavior("." + tb, "." + tt, 'slow', toggleType);
         num++;
