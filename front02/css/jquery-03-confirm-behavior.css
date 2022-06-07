@@ -1,41 +1,41 @@
 .lbl {
-    display: block;
+  display: block;
 }
 
 .lbl.input-confirm {
-    border-color: transparent;
+  border-color: transparent;
 }
 
 .input {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .txt {
-    font: 1rem sans-serif;
-    min-width: 300px;
-    width:50%;
-    box-sizing: border-box;
-    border: 1px solid #999;
+  font: 1rem sans-serif;
+  min-width: 300px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 1px solid #999;
 }
 
 .txt.input-confirm {
-    border-color: transparent;
-    resize: none;
+  border-color: transparent;
+  resize: none;
 }
 
 .slc {
-    font: 1rem sans-serif;
-    min-width: 300px;
-    width:50%;
-    box-sizing: border-box;
-    border: 1px solid #999;
+  font: 1rem sans-serif;
+  min-width: 300px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 1px solid #999;
 }
 
 .slc.input-confirm {
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    padding:1px 4px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  padding: 1px 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
