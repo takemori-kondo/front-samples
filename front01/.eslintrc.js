@@ -2,7 +2,7 @@
 module.exports = {
   "env": {
     "browser": true,
-    "es6": true
+    "es2021": true
   },
   "plugins": [
     "html"
@@ -11,14 +11,10 @@ module.exports = {
     "html/report-bad-indent": "error",
   },
   "extends": "eslint:recommended",
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": "latest"
   },
   "rules": {
     "indent": ["warn", 2],
   }
-};
+}

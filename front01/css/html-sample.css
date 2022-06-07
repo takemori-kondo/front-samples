@@ -1,23 +1,23 @@
 .lbl {
-    display: block;
+  display: block;
 }
 
 .input {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .txt {
-    font: 1rem sans-serif;
-    min-width: 300px;
-    width:50%;
-    box-sizing: border-box;
-    border: 1px solid #999;
+  font: 1rem sans-serif;
+  min-width: 300px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 1px solid #999;
 }
 
 .slc {
-    font: 1rem sans-serif;
-    min-width: 300px;
-    width:50%;
-    box-sizing: border-box;
-    border: 1px solid #999;
+  font: 1rem sans-serif;
+  min-width: 300px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 1px solid #999;
 }
