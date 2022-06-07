@@ -4,7 +4,7 @@
 "use strict";
 
 /* exported attachToggleBehavior */
-function attachToggleBehavior(buttonSelector, targetSelector, duration = 'normal', toggleType = 'toggle') {
+const attachToggleBehavior = (buttonSelector, targetSelector, duration = 'normal', toggleType = 'toggle') => {
   $(buttonSelector).on('click', () => {
     const jqButton = $(buttonSelector);
     const pre = buttonSelector.slice(0, 1);

@@ -5,7 +5,7 @@
 "use strict";
 
 /* exported attachDialogBehavior */
-function attachDialogBehavior(buttonSelector, contentSelector, timeout = null, callback = null, innerButtonSelectors = ['.js-ok', '.js-cancel']) {
+const attachDialogBehavior = (buttonSelector, contentSelector, timeout = null, callback = null, innerButtonSelectors = ['.js-ok', '.js-cancel']) => {
   $(buttonSelector).on('click', () => {
     $.blockUI({
       message: $(contentSelector),
@@ -26,7 +26,7 @@ function attachDialogBehavior(buttonSelector, contentSelector, timeout = null, c
 }
 
 /* exported attachGrowlBehavior */
-function attachGrowlBehavior(buttonSelector, contentSelector, timeout = null) {
+const attachGrowlBehavior = (buttonSelector, contentSelector, timeout = null) => {
   $(buttonSelector).on('click', () => {
     $.blockUI({
       message: $(contentSelector),

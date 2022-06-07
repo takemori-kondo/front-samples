@@ -4,7 +4,7 @@
 "use strict";
 
 /* exported attachConfirmBehavior */
-function attachConfirmBehavior(confirmModeCssClass, modeSelector, inputContainerSelector, hidesEmpty = true) {
+const attachConfirmBehavior = (confirmModeCssClass, modeSelector, inputContainerSelector, hidesEmpty = true) => {
   const isConfirm = $(modeSelector).val() == 'confirm';
   if (hidesEmpty) {
     $(inputContainerSelector).each((i, element) => {
@@ -18,7 +18,7 @@ function attachConfirmBehavior(confirmModeCssClass, modeSelector, inputContainer
   toggleReadOnlyAndDisabled(`${inputContainerSelector} textarea`, confirmModeCssClass, isConfirm);
 }
 
-function toggleDisplayForEmptyElement(containerElement, targetSelector, isConfirm) {
+const toggleDisplayForEmptyElement = (containerElement, targetSelector, isConfirm) => {
   const dcd = 'data-css-display';
   const jqContainer = $(containerElement);
   if (jqContainer.find(targetSelector).val() == '') {
@@ -32,7 +32,7 @@ function toggleDisplayForEmptyElement(containerElement, targetSelector, isConfir
   }
 }
 
-function toggleReadOnlyAndDisabled(targetSelector, confirmModeCssClass, isConfirm) {
+const toggleReadOnlyAndDisabled = (targetSelector, confirmModeCssClass, isConfirm) => {
   const dr = 'data-readonly';
   const dd = 'data-disabled';
   $(targetSelector).each((i, element) => {

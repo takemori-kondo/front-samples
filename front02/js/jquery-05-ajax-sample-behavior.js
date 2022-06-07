@@ -5,7 +5,7 @@
 "use strict";
 
 /* exported attachConnpassEventGetterBehavior */
-function attachConnpassEventGetterBehavior(buttonSelector, targetSelector) {
+const attachConnpassEventGetterBehavior = (buttonSelector, targetSelector) => {
   // https://connpass.com/about/api/
   $(buttonSelector).on('click', () => {
     $.blockUI({
@@ -35,7 +35,7 @@ function attachConnpassEventGetterBehavior(buttonSelector, targetSelector) {
   });
 }
 
-function getConnpassRequestQueryString(keyword, days, order, count) {
+const getConnpassRequestQueryString = (keyword, days, order, count) => {
   const nows = new Array();
   nows[0] = new Date();
   for (let i = 1; i < days; i++) {
@@ -49,7 +49,7 @@ function getConnpassRequestQueryString(keyword, days, order, count) {
   return 'keyword=' + keyword + ymdQuery + '&order=' + order + '&count=' + count;
 }
 
-function formatConnpassEventData(events, isReverse = false) {
+const formatConnpassEventData = (events, isReverse = false) => {
   const formattedData = new Array();
   for (const event of events) {
     const row = new Array();
@@ -71,7 +71,7 @@ function formatConnpassEventData(events, isReverse = false) {
   };
 }
 
-function arrayToTableElement(records, captionsAndColumns) {
+const arrayToTableElement = (records, captionsAndColumns) => {
   let outputText = `
 <table>
     <tr>`;
