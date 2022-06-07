@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <link rel="canonical" href="https://site.domain/">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="keyword1,keyword2">
+  <meta name="description" content="Search engine shows this text.">
+  <meta name="author" content="Name; e-mail: name@mail.domain">
+  <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 viewport-fit=cover">
+  <title>cookie-sample</title>
+</head>
+
+<body>
+  <button onclick="showCookie();" tabindex="0" accesskey="a">Cookie一覧を見る</button>
+  <button onclick="setCookie('test1', 'hoge', null, null);" tabindex="1"
+    accesskey="b">Cookieのtest1キーにhogeをセットする。</button>
+  <button onclick="setCookie('test2', 'fuga', 10, null);" tabindex="2"
+    accesskey="c">Cookieのtest2キーにfugaを有効期限10日後でセットする。</button>
+  <button onclick="setCookie('test3', 'piyo', null, '/');" tabindex="2"
+    accesskey="c">Cookieのtest3キーにpiyoをpath='/'でセットする。</button>
+  <button onclick="clearCookie('test1', null);clearCookie('test2', null);clearCookie('test3', '/');" tabindex="3"
+    accesskey="d">Cookeieのtest1、test2、test3(path='/')を消去する。</button>
+  <button onclick="showCookieValue('test2');" tabindex="3" accesskey="d">Cookieのtest2の内容を表示する。</button>
+  <ul>
+    <li>標準では、個々のkeyに対する値を取り出すヘルパーが存在しないので、自作する必要がある。</li>
+    <li>expires(※1)が未設定の場合、そのkeyはブラウザを閉じると消える（セッションが終了すると消える）。</li>
+    <li>expires(※1)を設定すると、そのkeyはブラウザを閉じても有効期限内なら保存されたままになる。</li>
+    <li>クッキーを設定する際のexpiresの形式は、GMT文字列形式（UTC文字列形式）でなければならない。ISO 8601に対応していない。</li>
+    <li>現在はtoGMTStringは非推奨で、toUTCStringを使用する。</li>
+    <li>pathが未設定の場合、リクエストurlのpath部分が設定される（RFC6265準拠）。巷でいわれる「pathは設定しない」はドメイン内で共有したい場合は成立しない。(※2)</li>
+    <li>pathを設定すると、そのpathとサブpathで共有される（メジャーなブラウザは全てRFC6265準拠）。ドメイン全体で共有したい場合は、明示的にpath=/を指定する必要がある。</li>
+    <li>domainが未設定の場合、現在のドメインとサブドメインで値は共有されない。</li>
+    <li>domainを設定すると、そのドメインとサブドメインで値が共有される。</li>
+  </ul>
+  <div>(※1) expiresの代わりにmax-ageでも同様で、どちらか一方のみを指定する。こちらは生存期間を秒数を指定。</div>
+  <div>(※2) ./subdir/cookie-sample.htmlに同じファイルが置いてあるため、検証できる。<br>
+    上位側のcookieはsubdir側でもロードできるが、subdir側のcookieは上位側では見えない。<br>
+    また、clearCookieの挙動は単に期限切れでcookieを上書きしているだけだが、test1、test2はpathを指定していないため、上位側とsubdir側は互いに相手のcookieを消すことはできない。
+  </div>
+  <div><a
+      href="https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#cookie_の送信先の定義">https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#cookie_の送信先の定義</a>
+  </div>
+  <script>
+
+    // eslint-disable-next-line no-unused-vars
+    const showCookie = () => {
+      window.confirm(document.cookie);
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    const setCookie = (key, value, expireDays, path = '/') => {
+      let dt = null;
+      if (expireDays) {
+        dt = new Date();
+        dt.setDate(dt.getDate() + expireDays);
+      }
+      const cookieValue = getCookieText(key, value, dt, path);
+      document.cookie = cookieValue;
+      window.confirm(cookieValue);
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    const clearCookie = (key, path = '/') => {
+      const dt = new Date('2000-01-01T00:00:00');
+      const cookieValue = getCookieText(key, '', dt, path);
+      document.cookie = cookieValue;
+      window.confirm(cookieValue);
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    const showCookieValue = (key) => {
+      const val = getCookieValueOrUndefined(key);
+      window.confirm(key + ' = ' + val);
+    }
+
+    // handler
+    ////////////////////////////////////////////////////////////////////////////////
+    // sub routine
+
+    const getCookieText = (key, value, expireDate, path) => {
+      let expireText = '';
+      if (expireDate) {
+        const utcString = expireDate.toUTCString();
+        expireText = ';expires=' + utcString;
+      }
+      let pathText = '';
+      if (path) {
+        pathText = ';path=' + path;
+      }
+      return key + '=' + value + pathText + expireText;
+    }
+
+    const getCookieValueOrUndefined = (key) => {
+      const rawCookieText = document.cookie;
+      console.log(rawCookieText);
+      const cookieList = rawCookieText.split(';');
+      const cookieDict = new Object();
+      for (let keyAndValue of cookieList) {
+        const splitted = keyAndValue.split('=');
+        cookieDict[splitted[0].trim()] = splitted[1];
+      }
+      const val = cookieDict[key];
+      return val;
+    }
+  </script>
+</body>
+
+</html>
