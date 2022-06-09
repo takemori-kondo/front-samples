@@ -24,22 +24,18 @@
         <component-2 v-for="item in groceryList" v-bind:key="item.id" v-bind:todo="item"></component-2>
     </ol>
     <script>
-        // ES2015
-        // vue.js 2.x
-        Vue.component('component-1', {
+        // ES2018
+        // vue.js 3.x
+        const sample7 = Vue.createApp({
+        });
+        sample7.component('component-1', {
             template: '<li>This is a todo<\/li>'
         });
-        const sample7 = new Vue({
-            el: '#sample-7'
-        });
-        Vue.component('component-2', {
-            props: ['todo'],
-            template: '<li>{{ todo.id }} : {{ todo.text }}<\/li>'
-        });
+        sample7.mount('#sample-7');
         // Let's type "sample8.groceryList.push({ text: 'New item' })" into "Chrome -> F12 -> Console"
-        const sample8 = new Vue({
-            el: '#sample-8',
-            data: {
+        const sample8 = Vue.createApp({
+            data() {
+              return {
                 groceryList: [{
                         id: 0,
                         text: 'Vegetables'
@@ -53,8 +49,14 @@
                         text: 'Whatever else humans are supposed to eat'
                     }
                 ]
-            }
+            };
+          }
         });
+        sample8.component('component-2', {
+            props: ['todo'],
+            template: '<li>{{ todo.id }} : {{ todo.text }}<\/li>'
+        });
+        sample8.mount('#sample-8');
     </script>
 </body>
 

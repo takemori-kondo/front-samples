@@ -49,12 +49,12 @@
         </div>
     </div>
     <script>
-        // ES2015
-        // vue.js 2.x
+        // ES2018
+        // vue.js 3.x
         // インスタンスプロパティまたはコールバックでアロー関数 を使用しないでください。
-        const example = new Vue({
-            el: '#example',
-            data: {
+        const example = Vue.createApp({
+            data() {
+               return {
                 message: 'Hello Vue!',
                 htmlMessage: '<span style="color:blue">This text is blue!</span>',
                 seen: true,
@@ -75,7 +75,8 @@
                     'text-left': true,
                     'text-danger': false
                 }
-            },
+            };
+          },
             created: function () {
                 alert('created is called.');
             },
@@ -96,6 +97,7 @@
                 }
             }
         });
+        example.mount('#example');
     </script>
 </body>
 
