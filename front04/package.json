@@ -10,6 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.6.10"
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-vue": "^9.1.0"
   }
 }
