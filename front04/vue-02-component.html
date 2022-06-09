@@ -26,6 +26,8 @@
   <script>
     // ES2018
     // vue.js 3.x
+    // インスタンスプロパティまたはコールバックでアロー関数 を使用しないでください。
+    /* global Vue */
     const sample7 = Vue.createApp({
     });
     sample7.component('component-1', {
@@ -36,18 +38,19 @@
     const sample8 = Vue.createApp({
       data() {
         return {
-          groceryList: [{
-            id: 0,
-            text: 'Vegetables'
-          },
-          {
-            id: 1,
-            text: 'Cheese'
-          },
-          {
-            id: 2,
-            text: 'Whatever else humans are supposed to eat'
-          }
+          groceryList: [
+            {
+              id: 0,
+              text: 'Vegetables'
+            },
+            {
+              id: 1,
+              text: 'Cheese'
+            },
+            {
+              id: 2,
+              text: 'Whatever else humans are supposed to eat'
+            }
           ]
         };
       }

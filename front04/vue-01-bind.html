@@ -15,9 +15,23 @@
 </head>
 
 <body>
-  <p>vue.jsで間違えやすい事１：bodyに直接バインドはできません。bodyの直下全体をdivで囲んでdivにバインドすればOKです。</p>
-  <p>vue.jsで間違えやすい事２：computedやmethodsやwatchで、() => {...} による関数記述は許可されていません。</p>
-  <p>vue.jsで間違えやすい事３：elプロパティに指定するのはセレクタです。idに対してであれば、#が必要です。</p>
+  <h1>vue-01-bind</h1>
+  <h2>vue.js 2.x で間違えやすいこと</h2>
+  <ol>
+    <li>vue.jsで間違えやすい事１：bodyに直接バインドはできません。bodyの直下全体をdivで囲んでdivにバインドすればOKです。</li>
+    <li>vue.jsで間違えやすい事２：computedやmethodsやwatchで、() => {...} による関数記述は許可されていません。</li>
+    <li>vue.jsで間違えやすい事３：elプロパティに指定するのはセレクタです。idに対してであれば、#が必要です。</li>
+  </ol>
+  <h2>vue.js 3.x (Option API style = vue.js 2.x style)での変更点まとめ</h2>
+  <ol>
+    <li>new Vue()は、Vue.createApp()になりました。</li>
+    <li>elプロパティは廃止され、Vueインスタンス.mount()でバインドするようになりました。</li>
+    <li>dataプロパティはメソッド形式が必須になりました。</li>
+    <li>詳細は、<a
+        href="https://v3-migration.vuejs.org/breaking-changes/">https://v3-migration.vuejs.org/breaking-changes/</a>を参照してください
+    </li>
+  </ol>
+  <h2>以下サンプル</h2>
   <div id="example">
     <div>example-01 本文は二重中括弧 : {{ message }}</div>
     <div>example-02 属性はv-bind（:のみによる略記表記が可能） : <span :title="message">Hover here.</span></div>
@@ -53,24 +67,26 @@
     // ES2018
     // vue.js 3.x
     // インスタンスプロパティまたはコールバックでアロー関数 を使用しないでください。
+    /* global Vue */
     const example = Vue.createApp({
       data() {
         return {
           message: 'Hello Vue!',
           htmlMessage: '<span style="color:blue">This text is blue!</span>',
           seen: true,
-          todos: [{
-            id: 1,
-            text: 'Learn JavaScript'
-          },
-          {
-            id: 2,
-            text: 'Learn Vue'
-          },
-          {
-            id: 3,
-            text: 'Build something awesome'
-          }
+          todos: [
+            {
+              id: 1,
+              text: 'Learn JavaScript'
+            },
+            {
+              id: 2,
+              text: 'Learn Vue'
+            },
+            {
+              id: 3,
+              text: 'Build something awesome'
+            }
           ],
           classJson: {
             'text-left': true,
@@ -78,22 +94,22 @@
           }
         };
       },
-      created: function () {
+      created() {
         alert('created is called.');
       },
       computed: {
-        reversedMessage: function () {
+        reversedMessage() {
           // `this` は この Vue インスタンスを指します
           return this.message.split('').reverse().join('')
         }
       },
       methods: {
-        reverseSeen: function () {
+        reverseSeen() {
           this.seen = (this.seen == false) ? true : false;
         }
       },
       watch: {
-        seen: function (newValue, oldvalue) {
+        seen(newValue, oldvalue) {
           alert('seen : ' + oldvalue + '->' + newValue);
         }
       }
