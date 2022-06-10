@@ -2,20 +2,20 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Module mode</title>
+  <meta charset="UTF-8">
+  <title>Module mode</title>
 </head>
 
 <body>
-    <div>Hello, module mode</div>
-    <script type="module">
-        // ES2015
-        import {FooClass} from './js/FooClass.js';
-        window.onload = () => {
-            let hoge = new FooClass();
-            alert(hoge.Y);
-        };
-    </script>
+  <div>Hello, module mode</div>
+  <script type="module">
+    // ES2015
+    import { FooClass } from './js/FooClass.js';
+    window.onload = () => {
+      let hoge = new FooClass();
+      alert(hoge.Y);
+    };
+  </script>
 </body>
 
 </html>
