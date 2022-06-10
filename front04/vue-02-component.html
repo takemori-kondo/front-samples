@@ -15,27 +15,47 @@
 </head>
 
 <body>
-  <ol id="sample-7">
-    <component-1></component-1>
-    <component-1></component-1>
-    <component-1></component-1>
+  <h1>vue-02-component.html</h1>
+  <h2>componentSample1</h2>
+  <ol id="componentSample1">
+    <sample-component1 :p1="data1"></sample-component1>
+    <sample-component1 :p1="data1"></sample-component1>
+    <sample-component1 :p1="data1"></sample-component1>
   </ol>
-  <ol id="sample-8">
-    <component-2 v-for="item in groceryList" v-bind:key="item.id" v-bind:todo="item"></component-2>
+  <div>Let's type "viewModel1.data1='bar'" on "Chrome -> F12 -> Console"</div>
+  <h2>componentSample2</h2>
+  <ol id="componentSample2">
+    <sample-component2 v-for="item in groceryList" :key="item.id" :todo="item"></sample-component2>
   </ol>
+  <div>Let's type "viewModel2.groceryList.push({ id:100, text: 'New item' })" on "Chrome -> F12 -> Console"</div>
+  <h2>補足</h2>
+  <div>コンポーネントは、propでテンプレート構文側で利用可能な属性を定義できる（Angularの@input相当）</div>
+  <div>親側の持つ値は、上記で定義した属性にv-bind:して渡す</div>
+  <div>サンプルでは行っていないが、"v-bind=オブジェクト"とすると、オブジェクトを展開してすべてバインドする</div>
+  <div>子コンポーネント側のpropを書き換えることは許可されていない</div>
+  <div>子コンポーネントが渡された値を初期値として扱い、親とは独立して動作したいのなら、data()も併せて定義すればよい</div>
+  <div>サンプルではグローバル登録しか行っていないが、ローカル登録する方法もある</div>
+  <div>バリデーション、emits、属性の継承、v-modelの詳細などは、公式サイトを参照のこと</div>
   <script>
     // ES2018
     // vue.js 3.x
     // インスタンスプロパティまたはコールバックでアロー関数 を使用しないでください。
     /* global Vue */
-    const sample7 = Vue.createApp({
+    const app1 = Vue.createApp({
+      data() {
+        return {
+          data1: "foo"
+        };
+      }
     });
-    sample7.component('component-1', {
-      template: '<li>This is a todo<\/li>'
+    app1.component('sample-component1', {
+      props: ['p1'],
+      template: '<li>This is a todo of {{ p1 }}</li>'
     });
-    sample7.mount('#sample-7');
-    // Let's type "sample8.groceryList.push({ text: 'New item' })" into "Chrome -> F12 -> Console"
-    const sample8 = Vue.createApp({
+    const viewModel1 = app1.mount('#componentSample1');
+    console.log(viewModel1.data1);
+
+    const app2 = Vue.createApp({
       data() {
         return {
           groceryList: [
@@ -55,11 +75,12 @@
         };
       }
     });
-    sample8.component('component-2', {
+    app2.component('sample-component2', {
       props: ['todo'],
-      template: '<li>{{ todo.id }} : {{ todo.text }}<\/li>'
+      template: '<li>{{ todo.id }} : {{ todo.text }}</li>'
     });
-    sample8.mount('#sample-8');
+    const viewModel2 = app2.mount('#componentSample2');
+    console.log(viewModel2.groceryList);
   </script>
 </body>
 

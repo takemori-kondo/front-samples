@@ -18,14 +18,14 @@
   <h1>vue-01-bind</h1>
   <h2>vue.js 2.x で間違えやすいこと</h2>
   <ol>
-    <li>vue.jsで間違えやすい事１：bodyに直接バインドはできません。bodyの直下全体をdivで囲んでdivにバインドすればOKです。</li>
-    <li>vue.jsで間違えやすい事２：computedやmethodsやwatchで、() => {...} による関数記述は許可されていません。</li>
-    <li>vue.jsで間違えやすい事３：elプロパティに指定するのはセレクタです。idに対してであれば、#が必要です。</li>
+    <li>bodyに直接バインドはできません。body直下全体をdivで囲んでバインドでOK。</li>
+    <li>computedやmethodsやwatchで、() => {...} による関数記述は許可されていません。</li>
+    <li>elプロパティに指定するのはセレクタです。idに対してであれば、#が必要です。</li>
   </ol>
-  <h2>vue.js 3.x (Option API style = vue.js 2.x style)での変更点まとめ</h2>
+  <h2>vue.js 3.x (Option API style)での変更点まとめ</h2>
   <ol>
-    <li>new Vue()は、Vue.createApp()になりました。</li>
-    <li>elプロパティは廃止され、Vueインスタンス.mount()でバインドするようになりました。</li>
+    <li>new Vue()は、Vue.createApp()になりました。戻り値はApplicationになりました。</li>
+    <li>elプロパティは廃止され、Application.mount()でバインドするようになりました。</li>
     <li>dataプロパティはメソッド形式が必須になりました。</li>
     <li>詳細は、<a
         href="https://v3-migration.vuejs.org/breaking-changes/">https://v3-migration.vuejs.org/breaking-changes/</a>を参照してください
@@ -33,29 +33,25 @@
   </ol>
   <h2>以下サンプル</h2>
   <div id="example">
-    <div>example-01 本文は二重中括弧 : {{ message }}</div>
-    <div>example-02 属性はv-bind（:のみによる略記表記が可能） : <span :title="message">Hover here.</span></div>
-    <div>example-03 属性はv-bind（:のみによる略記表記が可能）classにバインドする場合はjson形式で記述できる : <span :class="classJson">Please show F12 >
-        Elements.</span></div>
-    <div>example-04 v-once : <span v-once>{{ message }}</span></div>
-    <div>example-05 v-html（v-htmlはユーザーから提供されたコンテンツに対しては決して使用してはいけません。）: <span v-html="htmlMessage"></span></div>
-    <div>example-06 v-if, v-else, key特殊属性 : <span v-if="seen" key="seenIsTrue">Now you see me</span><span v-else
+    <div>example-01 本文は二重中括弧<br> {{ message }}</div>
+    <div>example-02 属性はv-bind:（:で略記可能）<br><span :title="message">Hover here.</span></div>
+    <div>example-03 属性はv-bind:（class属性はjson形式OK）<br><span :class="classJson">Please show F12 > Elements.</span></div>
+    <div>example-04 v-once（元データが変わっても表示は変わりません）<br><span v-once>{{ message }}</span></div>
+    <div>example-05 v-html（注意！ ユーザーから提供されたデータに対して使用禁止）<br><span v-html="htmlMessage"></span></div>
+    <div>example-06-1 v-on:clickとmethods（@で略記可能）<br><button @click="reverseMessage">Reverse Message</button></div>
+    <div>example-06-2 v-on:clickとmethods（@で略記可能）<br><button @click="reverseSeen">Reverse Seen</button></div>
+    <div>example-07 v-model（双方向バインディング）<br><input v-model="message"></div>
+    <div>example-08 v-if, v-else, key特殊属性<br><span v-if="seen" key="seenIsTrue">Now you see me</span><span v-else
         key="seenIsFalse">Else!</span></div>
-    <div>example-07 v-for, key特殊属性 : <ol>
+    <div>example-09 v-for, key特殊属性<br>
+      <ol>
         <li v-for="(todo, i) in todos" :key="todo.id">
           インデックス={{i}}, text={{ todo.text }}
         </li>
       </ol>
     </div>
-    <div>example-08 v-on:clickとmethods（@のみによる略記表記が可能） : <button @click="reverseSeen">Reverse seen</button></div>
-    <div>example-09 v-model（双方向バインディング） : <input v-model="message"></div>
-    <div>example-10-1 elプロパティは、CSSセレクタを記載する</div>
-    <div>example-10-2 dataプロパティは、バインドするjsonを設定する</div>
-    <div>example-10-3 createdハンドラは、初期化時に呼ばれる（vue の createdを参照のこと）</div>
-    <div>example-10-4 computedプロパティは、dataをoopフィールドと見立てた場合のoopプロパティである。キャッシュされる計算値 : {{ reversedMessage }}</div>
-    <div>example-10-5 methodsプロパティは、dataをoopフィールドと見立てた場合のoopメソッドである。</div>
-    <div>example-10-6 watchプロパティは、dataやcomputedに対する変更監視ができる。（vue の watchを参照のこと）</div>
-    <div>example-11 templateタグ（html5にあるjsとの連携を前提とした初期では非表示な内容）とv-ifを組み合わせれば、簡単にdivで囲まずに複数の要素の表示切替ができる
+    <div>example-10 computedプロパティ<br>{{ reversedMessage }}</div>
+    <div>example-11 templateタグ<br>
       <template v-if="seen">
         <p>paragraph1</p>
         <p>paragraph2</p>
@@ -63,59 +59,78 @@
       </template>
     </div>
   </div>
-  <script>
-    // ES2018
-    // vue.js 3.x
-    // インスタンスプロパティまたはコールバックでアロー関数 を使用しないでください。
-    /* global Vue */
-    const example = Vue.createApp({
-      data() {
-        return {
-          message: 'Hello Vue!',
-          htmlMessage: '<span style="color:blue">This text is blue!</span>',
-          seen: true,
-          todos: [
-            {
-              id: 1,
-              text: 'Learn JavaScript'
-            },
-            {
-              id: 2,
-              text: 'Learn Vue'
-            },
-            {
-              id: 3,
-              text: 'Build something awesome'
-            }
-          ],
-          classJson: {
-            'text-left': true,
-            'text-danger': false
+  <h2>以下補足</h2>
+  <div>
+    <div>mountにはバインド先のCSSセレクタを記載する</div>
+    <div>dataハンドラは、初期データのjsonを返却する</div>
+    <div>createdハンドラは、初期化時に呼ばれる（vue の createdを参照のこと）</div>
+    <div>computedプロパティは、dataをoopフィールドと見立てた場合のoopプロパティである。</div>
+    <div>methodsプロパティは、dataをoopフィールドと見立てた場合のoopメソッドである。</div>
+    <div>watchプロパティは、dataやcomputedに対する変更監視ができる。（vue の watchを参照のこと）</div>
+    <div>templateタグ（html5にあるjsとの連携を前提とした初期では非表示な内容）はv-ifを認識する</div>
+    <div>テンプレート構文での式形式、動的引数、修飾子、は以下を参照の事<br><a
+        href="https://v3.ja.vuejs.org/guide/template-syntax.html">https://v3.ja.vuejs.org/guide/template-syntax.html</a>
+    </div>
+    <div>各構文は触りしか説明していない。修飾子等のオプションは公式サイトを参照の事</div>
+    <script>
+      // ES2018
+      // vue.js 3.x
+      // インスタンスプロパティまたはコールバックでアロー関数 を使用しないでください。
+      /* global Vue */
+      const propertyPrototype = {
+        message: 'Hello Vue!',
+        classJson: {
+          'text-left': true,
+          'text-danger': false,
+          'text-important': true,
+        },
+        htmlMessage: '<span style="color:blue">This text is blue!</span>',
+        seen: true,
+        todos: [
+          {
+            id: 1,
+            text: 'Learn JavaScript'
+          },
+          {
+            id: 2,
+            text: 'Learn Vue'
+          },
+          {
+            id: 3,
+            text: 'Build something awesome'
           }
-        };
-      },
-      created() {
-        alert('created is called.');
-      },
-      computed: {
-        reversedMessage() {
-          // `this` は この Vue インスタンスを指します
-          return this.message.split('').reverse().join('')
-        }
-      },
-      methods: {
-        reverseSeen() {
-          this.seen = (this.seen == false) ? true : false;
-        }
-      },
-      watch: {
-        seen(newValue, oldvalue) {
-          alert('seen : ' + oldvalue + '->' + newValue);
-        }
-      }
-    });
-    example.mount('#example');
-  </script>
+        ]
+      };
+      const app = Vue.createApp({
+        data() {
+          return propertyPrototype;
+        },
+        computed: {
+          reversedMessage() {
+            // `this` は この Vue インスタンスを指します
+            return this.message.split('').reverse().join('')
+          }
+        },
+        watch: {
+          seen(newValue, oldvalue) {
+            alert('seen : ' + oldvalue + '->' + newValue);
+          }
+        },
+        created() {
+          alert('created is called.');
+        },
+        methods: {
+          reverseMessage() {
+            this.message = this.message.split('').reverse().join('');
+          },
+          reverseSeen() {
+            this.seen = (this.seen == false) ? true : false;
+          }
+        },
+      });
+      const viewModel = app.mount('#example');
+      console.log(viewModel.message);
+    </script>
 </body>
 
 </html>
