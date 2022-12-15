@@ -15,14 +15,20 @@ ________________________________________________________________________________
 
 前提・基本プラクティス
 
-1. cssファイルを利用する。インラインやstyle要素を避ける
-2. classセレクタ、idセレクタ、疑似クラスを使う
-3. font-size指定は理由がなければremで設定
-4. !importantを避ける
-5. * { box-sizing: border-box; }する（直感的にデザイン可能になる）
+1. ルールセットの書式（セレクタ、cssプロパティ、値）
+2. CSS詳細度（!important、インライン、id、クラス等、要素、全称）
+3. box model
+4. display: flex;、flex-wrap: wrap;、justify-content: center;、gap: 0 1.5em;
+5. position: absolute;、right: 0;
 6. @media(max-width: 767px){ ... }がモバイル対応の基本
-7. normalizeする。normalize.cssを使うと便利
-8. 固定ヘッダするならsticky&top。さらにページ内リンクがあるならanchor HACK
+7. cssファイルを利用する。インラインやstyle要素を避ける
+8. classセレクタ、idセレクタ、input[type="text"]など、:link、:active、:visitedを使う
+9. 結合子（親子関係など）は使いすぎない
+10. font-size指定は理由がなければremで設定
+11. !importantを避ける
+12. * { box-sizing: border-box; }する（直感的にデザイン可能になる）
+13. normalizeする。normalize.cssを使うと便利
+14. 固定ヘッダするならsticky&top。さらにページ内リンクがあるならanchor HACK
 
 目的：打ち消しCSSの最小化、CSS優先度地獄に陥らない
 
@@ -363,7 +369,7 @@ hamburger system
 e.g.
 #site-menu-mobile-state
  │
-.site-menu-mobile-state__sibling ─ .hamburger-container-xx ─ .hamburger-container-40px__lines .anm-hamburger-lines
+.site-menu-mobile-state__sibling ─ .hamburger-container-40px ─ .hamburger-container-40px__lines .anm-hamburger-lines
  │
 .site-menu-mobile-state__sibling ─ 連動させたいパーツ
 */
@@ -386,12 +392,12 @@ e.g.
 }
 
 .hamburger-container-40px__line-top___ {
-  /* align-items: center & abusoluteなので、２倍の値が必要 */
+  /* align-items: center & absoluteなので、2倍の値が必要 */
   margin-top: -20px;
 }
 
 .hamburger-container-40px__line-bottom {
-  /* align-items: center & abusoluteなので、２倍の値が必要 */
+  /* align-items: center & absoluteなので、2倍の値が必要 */
   margin-top: 20px;
 }
 
