@@ -349,6 +349,10 @@ th {
   border-color: #999999;
 }
 
+.skn-vertical-box-shadow {
+  box-shadow: 0 2px 4px #aaaaaa;
+}
+
 /********** composite blocks **********/
 /* フォームサンプル（width:50%） */
 .half-width-inputs input[type="text"],
