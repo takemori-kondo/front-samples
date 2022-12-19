@@ -470,9 +470,9 @@ mobile
   }
 
   .page-title-mobile {
-    font-size:14px;
+    font-size: 14px;
     height: 40px;
-    line-height:40px;
+    line-height: 40px;
     text-align: center;
   }
 
@@ -485,6 +485,7 @@ mobile
   }
 
   #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling .site-menu-mobile {
-    height: 150px; /* height: auto; だとアニメーションが利かないため固定値が必要 */
+    /* height: auto; だとアニメーションが利かないため固定値が必要 */
+    height: 150px;
   }
 }
