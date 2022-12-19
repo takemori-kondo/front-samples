@@ -339,7 +339,8 @@ th {
 /****** structure module blocks *******/
 /* width(child), height, border, padding, min-width, min-height... */
 .site-main {
-  max-width: 1000px;
+  min-width: 375px;
+  width: 95%;
   padding: 10px;
 }
 
