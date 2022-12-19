@@ -272,6 +272,16 @@ th {
 
 /*********** layout blocks ************/
 /* position, z-index, top, right, bottom left, display:float, width(root), margin */
+.ly-auto-height-site-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.ly-auto-height-site-main {
+  flex: 1;
+}
+
 .ly-sticky-header {
   position: sticky;
   top: 0;
