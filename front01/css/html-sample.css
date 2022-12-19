@@ -18,7 +18,7 @@ ________________________________________________________________________________
 1. ルールセットの書式（セレクタ、cssプロパティ、値）
 2. CSS詳細度（!important、インライン、id、クラス等、要素、全称）
 3. box model
-4. display: flex;、flex-wrap: wrap;、justify-content: center;、gap: 0 1.5em;
+4. display: flex;、flex-wrap: wrap;、justify-content: center;、gap: 0 1.5rem;
 5. position: absolute;、right: 0;
 6. @media(max-width: 767px){ ... }がモバイル対応の基本
 7. cssファイルを利用する。インラインやstyle要素を避ける
@@ -285,7 +285,7 @@ th {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0 1.5em;
+  gap: 0 1.5rem;
 }
 
 .ly-box-centering {
