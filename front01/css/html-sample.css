@@ -485,6 +485,6 @@ mobile
   }
 
   #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling .site-menu-mobile {
-    height: 150px; /* height: auto; だとアニメーションが聞かないため固定値が必要 */
+    height: 150px; /* height: auto; だとアニメーションが利かないため固定値が必要 */
   }
 }
