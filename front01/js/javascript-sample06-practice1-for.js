@@ -7,22 +7,24 @@ const outputPractice1_For = () => {
   window.alert('F12を押してconsoleタブに出力された内容を確認してください。');
 
   /*
-  for  
-  https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for
+for  
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for
 
-  for...in  
-  https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...in
-  
-  for...of  
-  https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...of
+for...in  
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...in
 
-  Array.prototype.forEach()  
-  https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+for...of  
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...of
 
-  for           : OK
-  for in        : 非推奨（そもそも配列に対して使用する機能ではない）
-  for of        : 他言語のfoeachと等価
-  Array.forEach : 非推奨
+Array.prototype.forEach()  
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+|文法          |説明
+|--------------|----------------------------------------------------------------
+|for           | OK
+|for in        | 非推奨（そもそも配列に対して使用する機能ではない）
+|for of        | 他言語のfoeachと等価
+|Array.forEach | 非推奨
   */
   const itemList = [{ ItemId: 1, ItemName: 'apple' }, { ItemId: 2, ItemName: 'banana' }, { ItemId: 3, ItemName: 'cherry' }];
   console.log('"for" sample');
