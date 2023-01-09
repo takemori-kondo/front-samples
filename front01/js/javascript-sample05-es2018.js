@@ -10,7 +10,9 @@ const outputES2016_2018 = async () => {
   厳格モード  
   https://kangax.github.io/compat-table/es2016plus/
   */
-
+  /*
+  2023年現在、直接ネイティブでの使用は控え、ES2015へターゲットすることを推奨（iPhone6、iPad 4thのOSバージョンがES2015なので）
+  */
   console.log('2016. exponentiation (**) operator');
   console.log(2 ** 8);
 
