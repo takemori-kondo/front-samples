@@ -10,12 +10,157 @@
   <meta name="author" content="Name; e-mail: name@mail.domain">
   <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
-  <script src="./js/javascript-hello-world.js"></script>
+  <script src="./js/javascript-sample01-hello-world.js"></script>
+  <script src="./js/javascript-sample02-strict-mode.js"></script>
+  <script src="./js/javascript-sample03-es2011.js"></script>
+  <script src="./js/javascript-sample04-es2015.js"></script>
+  <script src="./js/javascript-sample05-es2018.js"></script>
+  <script src="./js/javascript-sample06-for-practice.js"></script>
   <title>javascript-hello-world</title>
 </head>
 
+<!--
+# Javascript基礎
+________________________________________________________________________________
+とほほのJavaScriptリファレンス イベントハンドラ  
+http://www.tohoho-web.com/js/onevent.htm
+
+改訂新版JavaScript本格入門 3刷  
+http://gihyo.jp/book/2016/978-4-7741-8411-1  
+(電子書籍は1刷。未改善正誤表あり)
+
+Front-End Checklist  
+https://github.com/thedaviddias/Front-End-Checklist
+
+________________________________________________________________________________
+## 1. HtmlとJavascript
+________________________________________________________________________________
+### 1.1. 用語
+
+```text
+ES2011                  : =ES5.1。Javascriptのバージョン
+ES2015                  : =ES6。Javascriptのバージョン
+npm                     : Javascript向けのパッケージマネージャ
+3大Framework            : Augular, React, Vue3
+コンポーネントベース    : CBSE。プログラムをカプセル化された部品を作って組み合わせる。3大Frameworkはいずれもコンポーネントベース
+```
+
+________________________________________________________________________________
+### 1.2. DOM構築と動作開始
+
+```text
+ページの生成: ブラウザーの動作の仕組み  
+https://developer.mozilla.org/ja/docs/Web/Performance/How_browsers_work
+
+基本的な仕組み
+1. htmlはDOMパーサ（DOM構築）、プリロードスキャナ（外部リソース検出&リクエスト）により並列にパースされる
+2. DOM構築、CSS解析、javascript解析は並列に行われる
+3. ただし、DOMパーサが「deferやasyncがない未解析のscript要素」に到達すると、DOM構築は中断される
+4. 通常のjavascriptは「全てのCSS解析が完了」した時点で開始される。DOM構築の完了を待たない
+5. defer属性のjavascriptは「DOM構築の完了」も待ってから開始される
+6. DOMContentLoadedイベントはdefer属性のあるjavascriptの処理の後に発生する。画像リソースなどの取得は待たない
+7. window.loadイベントは画像リソースなど全ての取得の完了後に発生する
+```
+
+________________________________________________________________________________
+### 1.3. Htmlに関わるJavascriptのプラクティス
+
+大原則
+
+```text
+1. htmlは「共通script」「そのhtml用script」の2種類を基本とする
+2. 基本的には、外部スクリプトのみを使用する
+3. 「そのhtml用script」は、外部スクリプトではなくhtmlのbody一番下に記述することも許容する
+```
+
+控えめなdomスクリプティング
+
+```text
+目立たない JavaScript の原則  
+https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript
+
+jQuery と JavaScript のコーディング: 例とベスト プラクティス  
+https://www.smashingmagazine.com/2008/09/jquery-examples-and-best-practices/
+
+※ 一部古いプラクティスになっているが、大筋の方針は現在でも好ましい
+
+1. Unobtrusive JavaScript（Unobtrusive DOM Scripting）に従う
+    - 構造(html)と振る舞い(js)の分離。cssと同じように、インライン記述を避ける（大原則の言い換え）
+    - Javascriptが無効でも閲覧できるようにする。逆に、Javascriptによる入力検証などのみで信用してはならない*1*2
+    - セマンティック（＝タグの意味通りな）なhtmlにする
+    - 主要なブラウザでも動作するよう、ブラウザの互換性に気をつかう
+2. 「そのhtml用script」は、window.load()、jqueryの$(function() { ... });
+
+jsの固有挙動とプラクティス要約
+1. hoisting回避（グローバルに変数・処理を書くな。window.load()などに処理を書け）
+2. bubbling理解（イベントはハンドルされるまで伝播する）
+3. scope勘違い回避（letとconst以外の変数使うな）
+4. prototypeは不要（最近はclass糖衣構文があるので不要）
+5. 常にstrict
+
+*1 ただし、3大frameworkが一般化した2022年現在では、あまり重視されない
+*2 2011年ごろから普及したスクロール/パララクスデザインはこの限りではない
+```
+
+________________________________________________________________________________
+## 3. Javascriptの新規文法の要約
+________________________________________________________________________________
+
+________________________________________________________________________________
+### 3.3. ES2016～ES2018
+
+
+-->
+
 <body>
-  <button onclick="helloWorld();" tabindex="0" accesskey="b">ボタン</button>
+  <!--
+イベントのガイドライン
+
+イベントへの入門  
+https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/Events
+
+イベントのご紹介  
+https://www.quirksmode.org/js/introevents.html
+
+HTMLでonClick()を使用するのが悪い習慣なのはなぜですか?  
+https://stackoverflow.com/questions/5871640/why-is-using-onclick-in-html-a-bad-practice
+
+JS 関数名が要素 ID と競合するのはなぜですか?  
+https://stackoverflow.com/questions/9158238/why-js-function-name-conflicts-with-element-id
+
+最新のプラクティス
+
+- イベントハンドラ属性を使ってよく、単一の関数呼び出しのみを記載する。ただしid属性name属性の問題は知っておく
+
+最新のプラクティスの理由
+
+- そもそも複雑になった時点で、3大Frameworkのいずれかを採用することを検討するべきである
+ （複雑なページをFrameworkを使わずに作ること自体をやめるべきである。複雑になった場合のデメリットを考慮しない）
+- 3大Frameworkへステップアップするための架け橋として似た記法を採用する
+ （3大Frameworkはいずれもコンポーネントベースの哲学が導入され、UIと振る舞いが1対のUIコンポーネントになる前提になり、イベントハンドラ属性ライクな記法になる）
+ （コンポーネントベースにより再利用の概念は「UIコンポーネントの再利用」「再利用可能なServiceクラス」の2つの軸で再定義された）
+ （言い換えると、過去のプラクティスであるhtmlとjsの分離という括りは、コンポーネントベースを採用しない場合は、現在も有効な暫定的な方針であると言える）
+
+過去のプラクティス
+
+1. イベントハンドラ属性(Early event handlers)は避ける。どうしても使うなら、関数の呼び出しなど単純な記述にする
+2. イベントハンドラプロパティ(Traditional event registration model)も避ける
+3. イベントリスナ(W3C)の登録を推奨する。特にページ初期化処理に関しては必ずイベントリスナ形式にする
+
+過去のプラクティスの理由
+
+- html上にインラインでjavascriptコードが記載されるのは好ましくない
+- 複数登録できない
+- id属性やname属性と関数名が干渉する（歴史的な経緯により）
+  -->
+  <button onclick="helloWorld();" tabindex="0" accesskey="h">Hello World</button>
+  <button onclick="outputStrictMode();" tabindex="10" accesskey="s">strict mode</button>
+  <button onclick="outputES2011();" tabindex="20" accesskey="1">ES2011</button>
+  <button onclick="outputES2015_vol1();" tabindex="30" accesskey="5">ES2015 vol.1</button>
+  <button onclick="outputES2015_vol2();" tabindex="40" accesskey="6">ES2015 vol.2</button>
+  <button onclick="outputES2015_vol3();" tabindex="40" accesskey="7">ES2015 vol.3</button>
+  <button onclick="outputES2016_2018();" tabindex="40" accesskey="8">ES2016 ~ ES2018</button>
+  <button onclick="outputPractice1_For();" tabindex="50" accesskey="f">practice1 for</button>
 </body>
 
 </html>
