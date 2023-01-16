@@ -13,7 +13,7 @@ let sample1 = () => {
   let str: string = 'this is text';
   console.log(str);
 
-  // 使わない
+  // おおむね無意味
   // let obj: object = { propA: 1, propB: 'foo' };
   // console.log(obj);
   // console.log(obj.propA); // 不可能（C#のobject型に任意のインスタンスを入れた時と同じ）
