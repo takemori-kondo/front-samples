@@ -1,6 +1,6 @@
-console.log('typeサンプル1');
-
 let sample1 = () => {
+  console.log('typeサンプル1');
+
   // number
   let num: number = 1 + 2;
   console.log(num);

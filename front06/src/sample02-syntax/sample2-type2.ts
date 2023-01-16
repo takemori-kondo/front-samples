@@ -1,6 +1,6 @@
-console.log('typeサンプル2');
-
 let sample2 = () => {
+  console.log('typeサンプル2');
+
   // object
   class FooClass {
     public propA: number = 20;
