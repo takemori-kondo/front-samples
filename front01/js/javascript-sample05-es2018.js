@@ -7,7 +7,7 @@ const outputES2016_2018 = async () => {
   window.alert('F12を押してconsoleタブに出力された内容を確認してください。');
 
   /*
-  厳格モード  
+  ES2016-2018  
   https://kangax.github.io/compat-table/es2016plus/
   */
   /*

@@ -7,7 +7,7 @@ const outputES2015_vol1 = () => {
   window.alert('F12を押してconsoleタブに出力された内容を確認してください。');
 
   /*
-  厳格モード  
+  ES2015  
   https://kangax.github.io/compat-table/es6/
   */
 
