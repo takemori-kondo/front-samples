@@ -14,7 +14,7 @@ let sample4 = () => {
   log(20);
   log(true);
 
-  // ジェネリクス、
+  // ジェネリクス
   function map<T>(sourceArray: T[], func: (item: T) => T): T[] {
     let result = [];
     for (let i = 0; i < sourceArray.length; i++) {
