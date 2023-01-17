@@ -34,19 +34,19 @@ let sample2 = () => {
   console.log(objBaz);
   console.log(objBaz.propA);
 
-  // 「継承」はなく「形状」：例1
+  // 構造的な比較（「継承」はなく「形状」）：例1
   objQux = objFoo; // 形状を満たす
   objFoo = objQux; // 形状を満たす
 
-  // 「継承」はなく「形状」：例2
+  // 構造的な比較（「継承」はなく「形状」）：例2
   // objQux = objBar; // 形状を満たさない
   // objBar = objQux; // 形状を満たさない
 
-  // 「継承」はなく「形状」：例3
+  // 構造的な比較（「継承」はなく「形状」）：例3
   objQux = objBaz; // 形状を満たす
   // objBaz = objQux; // 形状を満たさない
 
-  // 「継承」はなく「形状」：例4
+  // 構造的な比較（「継承」はなく「形状」）：例4
   objFoo = objBaz; // 形状を満たす
   objBar = objBaz; // 形状を満たす
   // objBaz = objFoo; // 形状を満たさない
