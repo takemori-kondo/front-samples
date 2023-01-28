@@ -1,4 +1,4 @@
-let sample1 = () => {
+export const typeSample1 = () => {
   console.log('typeサンプル1');
 
   // number
@@ -24,4 +24,3 @@ let sample1 = () => {
   // console.log(variable.propA);
   // console.log(variable.propC); // 出来てしまう
 };
-sample1();

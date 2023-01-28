@@ -1,1 +1,1 @@
-console.log('Hello TypeScript!')
+export const helloWorld = () => console.log('Hello TypeScript!');

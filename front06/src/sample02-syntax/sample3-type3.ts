@@ -1,4 +1,4 @@
-let sample3 = () => {
+export const typeSample3 = () => {
   console.log('typeサンプル3');
 
   // array
@@ -22,5 +22,4 @@ let sample3 = () => {
   mapFunction = (p: number) => { return p * p; }
   console.log(mapFunction(20));
   // mapFunction = (p: string) => { return p; } // エラーになる
-}
-sample3();
+};

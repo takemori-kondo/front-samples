@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Typescript Samples</title>
+</head>
+
+<body>
+  <button onclick="sample.sample01_helloWorld();" tabindex="0" accesskey="h">Hello World</button>
+  <button onclick="sample.sample02_1_typeSample1();" tabindex="10" accesskey="s">typeSample1</button>
+  <button onclick="sample.sample02_2_typeSample2();" tabindex="20" accesskey="1">typeSample2</button>
+  <button onclick="sample.sample02_3_typeSample3();" tabindex="30" accesskey="5">typeSample3</button>
+  <button onclick="sample.sample02_4_otherSyntaxSample();" tabindex="40" accesskey="6">otherSyntaxSample</button>
+  <button onclick="sample.sample02_5_classSample();" tabindex="50" accesskey="7">classSample</button>
+  <button onclick="sample.sample03_practice1();" tabindex="60" accesskey="8">practice1</button>
+  <button onclick="sample.sample03_practice2();" tabindex="70" accesskey="f">practice2</button>
+  <script type="module">
+    // ES2015
+    // # tsconfig.jsonと同じ場所から以下でビルドされる
+    // ./node_modules/.bin/tsc --build
+    import { Samples } from './dist/out-tsc/index.js';
+    window.onload = () => {
+      window.sample = new Samples(); // 行儀がいい方法ではないので本番では非推奨
+    };
+  </script>
+</body>
+
+</html>

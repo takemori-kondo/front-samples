@@ -1,4 +1,4 @@
-let practice1 = () => {
+export const practice1 = () => {
   console.log('プロパティ存在チェック');
 
   // 補足1. そもそもプロパティ存在チェックより型定義が正攻法
@@ -31,5 +31,4 @@ let practice1 = () => {
   console.log(`StaffId is ${staff1.StaffId ? true : false}`);
   console.log(`ShoeSize is ${staff1.ShoeSize ? true : false}`); // falseになってしまう
   console.log(`OtherNm is ${staff1.OtherNm ? true : false}`);
-}
-practice1();
+};

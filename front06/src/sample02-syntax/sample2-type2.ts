@@ -1,4 +1,4 @@
-let sample2 = () => {
+export const typeSample2 = () => {
   console.log('typeサンプル2');
 
   // object
@@ -53,5 +53,4 @@ let sample2 = () => {
   // objBaz = objBar; // 形状を満たさない
   console.log(objFoo);
   console.log(objBar);
-}
-sample2();
+};

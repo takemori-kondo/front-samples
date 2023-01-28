@@ -1,4 +1,4 @@
-let practice2 = () => {
+export const practice2 = () => {
   console.log('オブジェクトのマージ');
 
   // Object.assign(dest, src, src ...)
@@ -15,5 +15,4 @@ let practice2 = () => {
   let postData2 = { ...baseParameter, ...additionalParameter1, ...additionalParameter2 };
   console.log(baseParameter);
   console.log(postData2);
-}
-practice2();
+};

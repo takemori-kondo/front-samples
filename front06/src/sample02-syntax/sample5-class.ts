@@ -1,4 +1,4 @@
-let sample5 = () => {
+export const classSample = () => {
   console.log('classサンプル');
 
   // typescript特有1. 型定義はどこでも書け、スコープに従う
@@ -97,6 +97,5 @@ let sample5 = () => {
   likeVar = new GameObjectLike();
   likeVar.name = 'GameObjectLike!';
   likeVar.draw();
-}
-sample5();
+};
 // let obj = new Vector2(); // 見つからない

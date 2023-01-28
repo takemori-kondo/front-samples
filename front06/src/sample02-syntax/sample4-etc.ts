@@ -1,5 +1,5 @@
-let sample4 = () => {
-  console.log('etcサンプル');
+export const otherSyntaxSample = () => {
+  console.log('細かい文法のサンプル');
 
   // ES2015で後追い実装された系1. option parameter
   const sum = (p1: number = 10, p2: number = 20) => p1 + p2;
@@ -26,5 +26,4 @@ let sample4 = () => {
   for (let item of result) {
     console.log(item);
   }
-}
-sample4();
+};
