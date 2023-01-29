@@ -1,4 +1,5 @@
 export const practice2 = () => {
+  console.clear();
   console.log('オブジェクトのマージ');
 
   // Object.assign(dest, src, src ...)

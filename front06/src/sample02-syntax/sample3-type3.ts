@@ -1,4 +1,5 @@
 export const typeSample3 = () => {
+  console.clear();
   console.log('typeサンプル3');
 
   // array
@@ -15,9 +16,8 @@ export const typeSample3 = () => {
 
   // タプル、列挙型などもあるが、略
 
-  // 関数型式 ( call signature, type signature)
-  let mapFunction: (item: number) => number;
-  mapFunction = (p: number) => { return p * 3; }
+  // シグネチャ型(call signature, type signature)
+  let mapFunction: (item: number) => number = (p: number) => { return p * 3; };
   console.log(mapFunction(20));
   mapFunction = (p: number) => { return p * p; }
   console.log(mapFunction(20));

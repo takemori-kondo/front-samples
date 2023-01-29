@@ -1,4 +1,5 @@
 export const classSample = () => {
+  console.clear();
   console.log('classサンプル');
 
   // typescript特有1. 型定義はどこでも書け、スコープに従う
@@ -37,6 +38,7 @@ export const classSample = () => {
     public move() {
       this.velocity = this.velocity.sum(this.acceleration);
       this.position = this.position.sum(this.velocity);
+      console.log("this is moved");
     }
     public draw() {
       console.log(this.name);

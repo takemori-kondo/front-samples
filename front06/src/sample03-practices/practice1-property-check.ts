@@ -1,4 +1,5 @@
 export const practice1 = () => {
+  console.clear();
   console.log('プロパティ存在チェック');
 
   // 補足1. そもそもプロパティ存在チェックより型定義が正攻法

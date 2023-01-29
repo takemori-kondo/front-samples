@@ -1,4 +1,5 @@
 export const otherSyntaxSample = () => {
+  console.clear();
   console.log('細かい文法のサンプル');
 
   // ES2015で後追い実装された系1. option parameter
@@ -9,7 +10,7 @@ export const otherSyntaxSample = () => {
   const logItems = (...restParams: string[]) => { for (const item of restParams) { console.log(item); } }
   logItems('apple', 'banana', 'cherry');
 
-  // 複数の型
+  // 複数の型を許容（union type）
   const log = (p1: number | boolean) => { console.log(p1); }
   log(20);
   log(true);

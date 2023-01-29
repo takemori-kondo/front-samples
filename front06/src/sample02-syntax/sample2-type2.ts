@@ -1,25 +1,21 @@
 export const typeSample2 = () => {
+  console.clear();
   console.log('typeサンプル2');
 
   // object
   class FooClass {
-    public propA: number = 20;
+    public propA: number = 10;
     public propB: string = 'foofoo';
   }
   class BarClass {
-    public propA: number = 30;
+    public propA: number = 20;
     public propC: boolean = true;
   }
   class BazClass {
-    public propA: number = 40;
+    public propA: number = 30;
     public propB: string = 'bazbaz';
     public propC: boolean = false;
   }
-
-  let objQux = { propA: 10, propB: 'qux' };
-  console.log(objQux);
-  console.log(objQux.propA);
-  // console.log(obj.propC); // エラーになってくれる
 
   let objFoo: FooClass = new FooClass();
   console.log(objFoo);
@@ -34,9 +30,18 @@ export const typeSample2 = () => {
   console.log(objBaz);
   console.log(objBaz.propA);
 
+  let objQux = { propA: 40, propB: 'qux' };
+  console.log(objQux);
+  console.log(objQux.propA);
+  // console.log(obj.propC); // エラーになってくれる
+
   // 構造的な比較（「継承」はなく「形状」）：例1
   objQux = objFoo; // 形状を満たす
   objFoo = objQux; // 形状を満たす
+  console.log('OK : objQux = objFoo');
+  console.log('OK : objFoo = objQux');
+  console.log('objQux=');
+  console.log(objQux);
 
   // 構造的な比較（「継承」はなく「形状」）：例2
   // objQux = objBar; // 形状を満たさない
@@ -45,12 +50,19 @@ export const typeSample2 = () => {
   // 構造的な比較（「継承」はなく「形状」）：例3
   objQux = objBaz; // 形状を満たす
   // objBaz = objQux; // 形状を満たさない
+  console.log('OK : objQux = objBaz');
+  console.log('objQux=');
+  console.log(objQux);
 
   // 構造的な比較（「継承」はなく「形状」）：例4
   objFoo = objBaz; // 形状を満たす
   objBar = objBaz; // 形状を満たす
   // objBaz = objFoo; // 形状を満たさない
   // objBaz = objBar; // 形状を満たさない
+  console.log('OK : objFoo = objBaz');
+  console.log('OK : objBar = objBaz');
+  console.log('objFoo=');
   console.log(objFoo);
+  console.log('objBar=');
   console.log(objBar);
 };

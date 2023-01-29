@@ -1,17 +1,18 @@
 export const typeSample1 = () => {
+  console.clear();
   console.log('typeサンプル1');
 
   // number
   let num: number = 1 + 2;
-  console.log(num);
+  console.log(`${typeof num} : ${num}`);
 
   // boolean
   let boo: boolean = false || true || undefined;
-  console.log(boo);
+  console.log(`${typeof boo} : ${boo}`);
 
   // string
   let str: string = 'this is text';
-  console.log(str);
+  console.log(`${typeof str} : ${str}`);
 
   // おおむね無意味
   // let obj: object = { propA: 1, propB: 'foo' };
