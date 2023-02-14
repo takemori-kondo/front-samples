@@ -6,6 +6,7 @@ import { otherSyntaxSample } from "./sample02-syntax/sample4-etc.js";
 import { classSample } from "./sample02-syntax/sample5-class.js";
 import { practice1 } from "./sample03-practices/practice1-property-check.js";
 import { practice2 } from "./sample03-practices/practice2-object-merge.js";
+import { practice3 } from "./sample03-practices/practice3-promise.js";
 
 export class Samples {
   public sample01_helloWorld() {
@@ -31,5 +32,8 @@ export class Samples {
   }
   public sample03_practice2() {
     practice2();
+  }
+  public sample03_practice3(isClearLog: boolean) {
+    practice3(isClearLog);
   }
 }
