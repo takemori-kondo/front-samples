@@ -11,6 +11,7 @@ declare global {
   }
 }
 
+// 標準ライブラリ型のprototypeにdelayを実装してしまっているが、一般的には非推奨なプラクティスです。真似しないでください。
 Promise.delay = function (delay_ms: number): Promise<void> {
   console.log(`delay ${delay_ms}`);
   return new Promise((resolve) => setTimeout(resolve, delay_ms));
