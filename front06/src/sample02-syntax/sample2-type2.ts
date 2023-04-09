@@ -40,8 +40,7 @@ export const typeSample2 = () => {
   objFoo = objQux; // 形状を満たす
   console.log('OK : objQux = objFoo');
   console.log('OK : objFoo = objQux');
-  console.log('objQux=');
-  console.log(objQux);
+  console.log(`objQux=${JSON.stringify(objQux)}`);
 
   // 構造的な比較（「継承」はなく「形状」）：例2
   // objQux = objBar; // 形状を満たさない
@@ -51,8 +50,7 @@ export const typeSample2 = () => {
   objQux = objBaz; // 形状を満たす
   // objBaz = objQux; // 形状を満たさない
   console.log('OK : objQux = objBaz');
-  console.log('objQux=');
-  console.log(objQux);
+  console.log(`objQux=${JSON.stringify(objQux)}`);
 
   // 構造的な比較（「継承」はなく「形状」）：例4
   objFoo = objBaz; // 形状を満たす
