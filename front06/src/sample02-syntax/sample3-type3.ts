@@ -11,7 +11,7 @@ export const typeSample3 = () => {
   // immutable array
   let immutableStringList: readonly string[] = ['apple', 'banana', 'cherry'];
   // immutableStringList[0] = 'ABC'; // エラーになる
-  // immutableStringList.push(1); // エラーになる
+  // immutableStringList.push('ABC'); // pushがない
   console.log(immutableStringList);
 
   // タプル、列挙型などもあるが、略

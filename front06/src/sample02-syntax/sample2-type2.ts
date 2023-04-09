@@ -59,8 +59,6 @@ export const typeSample2 = () => {
   // objBaz = objBar; // 形状を満たさない
   console.log('OK : objFoo = objBaz');
   console.log('OK : objBar = objBaz');
-  console.log('objFoo=');
-  console.log(objFoo);
-  console.log('objBar=');
-  console.log(objBar);
+  console.log(`objFoo=${JSON.stringify(objFoo)}`);
+  console.log(`objBar=${JSON.stringify(objBar)}`);
 };

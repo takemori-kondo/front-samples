@@ -27,9 +27,9 @@ export const practice3 = async (isClearLog: boolean) => {
 
   // 1. 基本
   console.log(`${mark}case1`);
-  console.log(`${mark}${iso8601ex_3ms(new Date())} case1-1 : awaitしている間、画面は自由に触れます`);
+  console.log(`${mark}${(new Date()).toISOString()} case1-1 : awaitしている間、画面は自由に触れます`);
   await Promise.delay(5000);
-  console.log(`${mark}${iso8601ex_3ms(new Date())} case1-2`);
+  console.log(`${mark}${(new Date()).toISOString()} case1-2`);
 
   // 2. チェーン
   console.log(`${mark}case2`);
@@ -44,36 +44,27 @@ export const practice3 = async (isClearLog: boolean) => {
 
 function createSomethingAsync(mark: string, isThrowing: boolean) {
   return new Promise(async (resolve, reject) => {
-    console.log(`${mark}${iso8601ex_3ms(new Date())} createSomethingAsync-1`);
+    console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-1`);
     await Promise.delay(1000);
     resolve('1st OK');
   })
     .then(async (result) => {
-      console.log(`${mark}${iso8601ex_3ms(new Date())} createSomethingAsync-2 : before result=${result}`);
+      console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-2 : before result=${result}`);
       await Promise.delay(1000);
       return '2nd OK';
     })
     .then(async (result) => {
-      console.log(`${mark}${iso8601ex_3ms(new Date())} createSomethingAsync-3 : before result=${result}`);
+      console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-3 : before result=${result}`);
       if (isThrowing) { throw new Error('ERROR!!!!'); }
       await Promise.delay(1000);
       return '3rd OK';
     })
     .then(async (result) => {
-      console.log(`${mark}${iso8601ex_3ms(new Date())} createSomethingAsync-4 : before result=${result}`);
+      console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-4 : before result=${result}`);
       return;
     })
     .catch(async (error) => {
-      console.log(`${mark}${iso8601ex_3ms(new Date())} createSomethingAsync-catch : error=${error}`);
+      console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-catch : error=${error}`);
       return;
     });
-}
-function iso8601ex_3ms(date: Date) {
-  return ('0000' + date.getFullYear()).slice(-4) + '-' +
-    ('00' + date.getMonth()).slice(-2) + '-' +
-    ('00' + date.getDay()).slice(-2) + 'T' +
-    ('00' + date.getHours()).slice(-2) + ':' +
-    ('00' + date.getMinutes()).slice(-2) + ':' +
-    ('00' + date.getSeconds()).slice(-2) + '.' +
-    ('000' + date.getMilliseconds()).slice(-3);
 }
