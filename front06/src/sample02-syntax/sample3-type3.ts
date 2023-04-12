@@ -3,13 +3,13 @@ export const typeSample3 = () => {
   console.log('typeサンプル3');
 
   // array
-  let numList: number[] = [10, 20, 30];
+  const numList: number[] = [10, 20, 30];
   numList.push(40);
   numList[0] = 15;
   console.log(numList);
 
   // immutable array
-  let immutableStringList: readonly string[] = ['apple', 'banana', 'cherry'];
+  const immutableStringList: readonly string[] = ['apple', 'banana', 'cherry'];
   // immutableStringList[0] = 'ABC'; // エラーになる
   // immutableStringList.push('ABC'); // pushがない
   console.log(immutableStringList);

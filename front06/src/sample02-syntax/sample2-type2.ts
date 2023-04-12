@@ -26,7 +26,7 @@ export const typeSample2 = () => {
   console.log(objBar);
   console.log(objBar.propA);
 
-  let objBaz: BazClass = new BazClass();
+  const objBaz: BazClass = new BazClass();
   console.log(objBaz);
   console.log(objBaz.propA);
 

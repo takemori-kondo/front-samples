@@ -36,11 +36,11 @@ export class Samples {
   public sample03_practice2() {
     practice2();
   }
-  public sample03_practice3(isClearLog: boolean) {
-    practice3(isClearLog);
+  public async sample03_practice3(isClearLog: boolean) {
+    await practice3(isClearLog);
   }
-  public sample03_practice4() {
-    practice4();
+  public async sample03_practice4() {
+    await practice4();
   }
   public sample03_practice5() {
     practice5();

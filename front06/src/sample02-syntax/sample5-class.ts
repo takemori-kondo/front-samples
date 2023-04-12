@@ -81,7 +81,7 @@ export const classSample = () => {
     }
   }
 
-  let bullet1: GameObject = new Bullet(
+  const bullet1: GameObject = new Bullet(
     "smallBullet",
     new Vector2(10, 20),
     new Vector2(1, 3),

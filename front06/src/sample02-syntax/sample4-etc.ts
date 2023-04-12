@@ -17,14 +17,14 @@ export const otherSyntaxSample = () => {
 
   // ジェネリクス
   function map<T>(sourceArray: T[], func: (item: T) => T): T[] {
-    let result = [];
+    const result = [];
     for (let i = 0; i < sourceArray.length; i++) {
       result[i] = func(sourceArray[i]);
     }
     return result;
   }
-  let result = map([10, 20, 30], (p) => 5 * p);
-  for (let item of result) {
+  const result = map([10, 20, 30], (p) => 5 * p);
+  for (const item of result) {
     console.log(`map's item = ${item}`);
   }
 };

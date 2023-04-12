@@ -3,15 +3,15 @@ export const typeSample1 = () => {
   console.log('typeサンプル1');
 
   // number
-  let num: number = 1 + 2;
+  const num: number = 1 + 2;
   console.log(`${typeof num} : ${num}`);
 
   // boolean
-  let boo: boolean = false || true || undefined;
+  const boo: boolean = false || true || undefined;
   console.log(`${typeof boo} : ${boo}`);
 
   // string
-  let str: string = 'this is text';
+  const str: string = 'this is text';
   console.log(`${typeof str} : ${str}`);
 
   // おおむね無意味
