@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Typescript Samples</title>
+</head>
+
+<body>
+  <p>F12からコンソールの出力を確認てください</p>
+  <button onclick="helloWorld();" tabindex="0" accesskey="h">Hello World</button>
+  <script type="module">
+    // 実際にはタスクランナーなどでhtmlもソース下においてコピーするのが正攻法。面倒なのでフォルダ直下にhtmlがいて、相対パスも強引に調整
+    import { helloWorld } from './dist/out-tsc/hello-world.js';
+    window.onload = () => {
+      window.helloWorld = helloWorld; // 行儀がいい方法ではないので本番では非推奨（windowのプロパティにすることでグローバルオブジェクト扱いにするという荒業）
+    };
+  </script>
+</body>
+
+</html>
