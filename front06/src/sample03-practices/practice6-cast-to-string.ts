@@ -1,6 +1,6 @@
 export { }
 
-export const practice6 = async () => {
+export const practice6 = () => {
   console.clear();
   console.log('string castプラクティス');
 
@@ -12,7 +12,7 @@ export const practice6 = async () => {
   console.log(`String(-Infinity)   : ${String(-Infinity)}`);
   console.log(`String(true)        : ${String(true)}`);
   console.log(`String(false)       : ${String(false)}`);
-  console.log(`String(1.23456789123456789123456789) : ${String(1.23456789123456789123456789)}`);
+  console.log(`String(1.23456789123456789) : ${String(1.23456789123456789)}`);
   console.log(`String(0b1010)      : ${String(0b1010)}`);
   console.log(`String(0xFFFF)      : ${String(0xFFFF)}`);
   console.log(`String(0o12)        : ${String(0o12)}`);

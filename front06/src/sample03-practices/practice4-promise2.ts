@@ -4,7 +4,7 @@ export const practice4 = async () => {
     // 例1. 単にN ms待機し、履行結果（≒await後の戻り値）のないpromise
     {
       const delayTime1 = 300;
-      const promise1 =  new Promise((resolve, _) => setTimeout(resolve, delayTime1));
+      const promise1 = new Promise((resolve) => setTimeout(resolve, delayTime1));
       await promise1;
       console.log(`${delayTime1} ms delayed!`);
     }
@@ -13,7 +13,7 @@ export const practice4 = async () => {
     {
       const promise2 = fetch('https://api.sampleapis.com/beers/ale');
       const response = await promise2;
-      const responseBody = await response.json();
+      const responseBody: unknown = await response.json();
       console.log(responseBody);
     }
 
@@ -40,7 +40,7 @@ export const practice4 = async () => {
     await promise4;
     // ↑でリジェクトされるので以降の処理に到達しない
     const delayTime4 = 500;
-    const promise5 = new Promise((resolve, _) => setTimeout(resolve, delayTime4));
+    const promise5 = new Promise((resolve) => setTimeout(resolve, delayTime4));
     await promise5;
     console.log(`${delayTime4} ms delayed!`);
   }

@@ -1,6 +1,6 @@
 export { }
 
-export const practice5 = async () => {
+export const practice5 = () => {
   console.clear();
   console.log('number castプラクティス');
 
@@ -16,7 +16,9 @@ export const practice5 = async () => {
   console.log(`Number(false)       : ${Number(false)}`);
   console.log(`Number('')          : ${Number('')}`);
   console.log(`Number(' ')         : ${Number(' ')}`);
+  // eslint-disable-next-line no-irregular-whitespace
   console.log(`Number('　')        : ${Number('　')}`);
+  // eslint-disable-next-line no-irregular-whitespace
   console.log(`Number(' \t\r\n　') : ${Number(' \t\r\n　')}`);
   console.log(`Number('abcdefgh')  : ${Number('abcdefgh')}`);
   console.log(`Number('1bcdefgh')  : ${Number('1bcdefgh')}`);

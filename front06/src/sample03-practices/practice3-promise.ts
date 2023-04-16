@@ -43,11 +43,12 @@ export const practice3 = async (isClearLog: boolean) => {
 };
 
 function createSomethingAsync(mark: string, isThrowing: boolean) {
-  return new Promise(async (resolve, reject) => {
-    console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-1`);
-    await Promise.delay(1000);
-    resolve('1st OK');
-  })
+  return new Promise<void>((resolve) => resolve())
+    .then(async () => {
+      console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-1`);
+      await Promise.delay(1000);
+      return '1st OK';
+    })
     .then(async (result) => {
       console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-2 : before result=${result}`);
       await Promise.delay(1000);
@@ -59,11 +60,12 @@ function createSomethingAsync(mark: string, isThrowing: boolean) {
       await Promise.delay(1000);
       return '3rd OK';
     })
-    .then(async (result) => {
+    .then((result) => {
       console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-4 : before result=${result}`);
       return;
     })
-    .catch(async (error) => {
+    .catch((error) => {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       console.log(`${mark}${(new Date()).toISOString()} createSomethingAsync-catch : error=${error}`);
       return;
     });
