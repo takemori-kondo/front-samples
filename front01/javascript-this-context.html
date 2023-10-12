@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <link rel="canonical" href="https://site.domain/">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="keyword1,keyword2">
+  <meta name="description" content="Search engine shows this text.">
+  <meta name="author" content="Name; e-mail: name@mail.domain">
+  <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <script src="./js/javascript-this-context.js"></script>
+  <title>javascript-this-context</title>
+</head>
+
+<!--
+  this - JavaScript | MDN
+  https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/this
+-->
+
+<body>
+  <button onclick="legacyFunction('onclick');" tabindex="0" accesskey="a">legacyFunction</button>
+  <button onclick="arrowFunction_('onclick');" tabindex="1" accesskey="b">arrowFunction_</button>
+  <button onclick="callFunctions_('callFunctions_');" tabindex="2" accesskey="c">callFunctions_</button>
+  <button onclick="callClassA____('callClassA____');" tabindex="3" accesskey="d">callClassA____</button>
+  <button onclick="callClassB____('callClassB____');" tabindex="4" accesskey="e">callClassB____</button>
+  <button onclick="callClassC____('callClassC____');" tabindex="5" accesskey="f">callClassC____</button>
+  <button onclick="callObjA______('callObjA______');" tabindex="6" accesskey="g">callObjA______</button>
+  <button onclick="callObjB______('callObjB______');" tabindex="7" accesskey="h">callObjB______</button>
+  <button onclick="callObjC______('callObjC______');" tabindex="8" accesskey="i">callObjC______</button>
+  <button onclick="callObjD______('callObjD______');" tabindex="9" accesskey="j">callObjD______</button>
+  <p>要約：function()は実行時のコンテキストで決まる（js独自）。()=>{}は宣言を元にthisが決まる（他の言語と同様）</p>
+</body>
+
+</html>
