@@ -153,7 +153,7 @@ ________________________________________________________________________________
 1. BEM記法を使い、BEMの考え方を採用する
 2. 各BEMブロックはSMACSS likeに分割し分類する
 3. moduleなBEMブロックはさらに、OOCSS likeに分解する
-4. レイアウトly-、スキンskn-、ベーススキンskn-base-接頭辞を使う
+4. レイアウトly-、スキンskn-接頭辞を使う
 */
 
 
@@ -188,64 +188,44 @@ textarea {
   box-sizing: border-box;
 }
 
+:root {
+  --base-brand-color: #253958;
+  --base-mono-color: #28282f;
+  --base-bg-color: #fffefe;
+  --base-bg-color-glass: #fffefea0;
+  --base-bg-color-glass2: #fffefed0;
+  --base-link-color: #2188ff;
+}
+
 html {
   font-size: 16px;
+  line-height: 1.6;
   font-family: sans-serif;
-  background-color: #dddddd;
-}
-
-.skn-base-positive {
-  color: #28282a;
-  background-color: #fffefe;
-}
-
-.skn-base-negative {
-  color: #ffffff;
-  background-color: #253958;
-}
-
-.skn-base-reverse-negative {
-  color: #253958;
-  background-color: #ffffff;
+  color: var(--base-mono-color);
+  background-color: var(--base-bg-color);
 }
 
 /* リンクの基本方針 */
 a:link,
 a:visited {
-  color: #f07d34;
+  color: var(--base-link-color);
   text-decoration: none;
 }
 
 a:active {
-  color: #f07d34;
+  color: var(--base-link-color);
   text-decoration: underline;
 }
 
 /* 見出しの基本方針 */
-h1 {
-  color: #253958;
-  font-size: 1.4rem;
-  text-align: center;
-  border-top: 2px solid #253958;
-  border-bottom: 2px solid #253958;
-}
-
-h2 {
-  color: #253958;
-  font-size: 1.2rem;
-  border-top: 1px solid #253958;
-  border-right: 1px solid #253958;
-  border-bottom: 1px solid #253958;
-  border-left: 12px solid #253958;
-  padding-left: 12px;
-}
-
+h1,
+h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #253958;
-  font-size: 1rem;
+  margin-top: 16px;
+  margin-bottom: 10px;
 }
 
 /* テーブルの基本方針 */
@@ -254,31 +234,49 @@ h6 {
 }
 
 table {
-  margin: 0 auto;
   border-collapse: collapse;
 }
 
 th,
 td {
-  border: 1px solid #dbdbdb;
-  padding: 10px;
+  border-bottom: 1px solid #ebebeb;
+  padding: 0 16px;
   white-space: nowrap;
 }
 
+tr:nth-child(odd) td {
+  background-color: #fafafa;
+}
+
 th {
-  color: #ffffff;
-  background-color: #253958;
+  background-color: #ebebeb;
+}
+
+ol,
+ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+li ol,
+li ul {
+  padding-left: 40px;
+}
+
+mark {
+  color: inherit;
+  background: linear-gradient(to bottom, transparent 65%, #ffef00 66%, #ffef00 89%, transparent 90%);
 }
 
 /*********** layout blocks ************/
 /* position, z-index, top, right, bottom left, display:float, width(root), margin */
-.ly-auto-height-site-container {
+.ly-flex-container-100vh {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.ly-auto-height-site-main {
+.ly-flex-1 {
   flex: 1;
 }
 
@@ -288,18 +286,16 @@ th {
   z-index: 100;
 }
 
-.ly-horizontal-list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0 1.5rem;
+/* 実際に配置されるためには、widthが適切に指定される必要があります。 */
+.ly-box-centering {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.ly-box-centering {
-  margin: 0 auto;
+/* 実際に配置されるためには、widthが適切に指定される必要があります。 */
+.ly-box-right {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .ly-absolute-left {
@@ -312,20 +308,16 @@ th {
   right: 0;
 }
 
-/* sticky vs ページ内リンクHACK */
+/* HACK:sticky vs ページ内リンク (54px + 適当) */
 .ly-hack-anchor {
   display: block;
   position: relative;
-  top: -76px;
+  top: -70px;
   visibility: hidden;
 }
 
-.ly-subarea-of-main {
-  margin: 40px 0;
-}
-
-.ly-content-section {
-  margin-bottom: 100px;
+.ly-main-top {
+  margin-top: 0;
 }
 
 .ly-input-container {
@@ -338,14 +330,9 @@ th {
 
 /****** structure module blocks *******/
 /* width(child), height, border, padding, min-width, min-height... */
-.site-main {
-  min-width: 375px;
-  width: 95%;
-  padding: 10px;
-}
 
-.site-footer {
-  padding: 4px;
+.content-section {
+  padding-bottom: 2rem;
 }
 
 .iframe-16-9-container {
@@ -354,18 +341,37 @@ th {
   width: 100%;
   padding-top: 56.25%;
 }
+
 .iframe-16-9-container iframe {
   position: absolute;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 
 /********* skin module blocks *********/
 /* color, border-color, background-color... */
+.skn-glass {
+  background-color: var(--base-bg-color-glass);
+}
+
+.skn-brand-positive {
+  color: var(--base-brand-color);
+  background-color: inherit;
+}
+
+.skn-brand-negative {
+  color: #ffffff;
+  background-color: var(--base-brand-color);
+}
+
 .skn-inline-centering {
   text-align: center;
+}
+
+.skn-inline-right {
+  text-align: right;
 }
 
 .skn-simple-border {
@@ -374,18 +380,57 @@ th {
 }
 
 .skn-vertical-box-shadow {
-  box-shadow: 0 2px 4px #aaaaaa;
+  box-shadow: 0 1px 4px #eeeeee;
 }
 
 /********** composite blocks **********/
-/* フォームサンプル（width:50%） */
+/* layout + structure + skin */
 .half-width-inputs input[type="text"],
 .half-width-inputs input[type="email"],
 .half-width-inputs select,
 .half-width-inputs textarea {
-  min-width: 300px;
+  /* structure */
   width: 50%;
   border-width: 1px;
+  /* skin */
+  min-width: 300px;
+}
+
+.site-title {
+  /* structure */
+  width: max-content;
+  padding: 14px;
+}
+
+.site-title__title {
+  /* structure */
+  width: max-content;
+  /* skin */
+  font-weight: bold;
+}
+
+.site-title__subtitle {
+  /* structure */
+  width: max-content;
+  /* skin */
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.main-content {
+  /* structure */
+  margin-left: auto;
+  margin-right: auto;
+  /* structure */
+  width: 95%;
+  min-width: 375px;
+}
+
+.site-footer {
+  /* structure */
+  padding: 2px;
+  /* skin */
+  font-size: 14px;
 }
 
 
@@ -431,8 +476,8 @@ e.g.
 
 /*********** hamburger skin ***********/
 .skn-hamburger-lines {
-  height: 4px;
-  border-radius: 2px;
+  height: 2px;
+  border-radius: 1px;
 }
 
 /***** hamburger animation speed ******/
@@ -463,12 +508,48 @@ e.g.
 pc
 **************************************/
 @media(min-width: 768px) {
-  .site-header-pc {
+  .ly-displayed-on-pc {
     display: block;
   }
 
-  .site-header-mobile {
+  .ly-displayed-on-mobile {
     display: none;
+  }
+
+  .site-header-pc {
+    height: 54px;
+  }
+
+  /********** composite blocks **********/
+  /* layout + structure + skin */
+  .site-menu-pc {
+    /* structure */
+    padding: 14px;
+  }
+
+  .site-menu-pc__list {
+    /* layout */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 1.5rem;
+    /* structure */
+    padding: 0;
+    /* skn */
+    list-style-type: none;
+  }
+
+  .site-menu-pc__list a:link,
+  .site-menu-pc__list a:visited,
+  .site-menu-pc__list a:active {
+    /* skn */
+    color: var(--base-brand-color);
+  }
+
+  .page-title-pc {
+    padding-top: 6px;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
   }
 }
 
@@ -478,38 +559,76 @@ pc
 mobile
 **************************************/
 @media(max-width: 767px) {
-  .site-header-pc {
+  .ly-displayed-on-pc {
     display: none;
   }
 
-  .site-header-mobile {
+  .ly-displayed-on-mobile {
     display: block;
   }
 
-  /********** composite blocks **********/
-  .site-title-mobile {
-    padding-top: 4px;
-    padding-left: 4px;
-    font-size: 11.5px;
+  .site-header-mobile {
+    height: auto;
+    transition: all 200ms ease-in-out;
   }
 
+  /********** composite blocks **********/
+  /* layout + structure + skin */
   .page-title-mobile {
-    font-size: 14px;
+    /* structure */
+    width: 75%;
     height: 40px;
+    /* skin */
+    font-size: 14px;
+    font-weight: bold;
     line-height: 40px;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .site-menu-mobile-state__sibling {
+    /* structure */
+    transition: all 200ms ease-in-out;
   }
 
   .site-menu-mobile {
-    overflow: hidden;
-    height: 0;
+    /* layout */
     margin: 0;
-    list-style-type: none;
+    /* structure */
+    height: 0;
     transition: all 200ms ease-in-out;
+    /* skin */
+    overflow: hidden;
+  }
+
+  .site-menu-mobile__list {
+    /* layout */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* structure */
+    padding: 14px;
+    width: max-content;
+    /* skin */
+    list-style-type: none;
+  }
+
+  .site-menu-mobile__list a:link,
+  .site-menu-mobile__list a:visited,
+  .site-menu-mobile__list a:active {
+    /* skin */
+    color: var(--base-brand-color);
+  }
+
+  #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling {
+    /* skin */
+    background-color: var(--base-bg-color-glass2);
   }
 
   #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling .site-menu-mobile {
     /* height: auto; だとアニメーションが利かないため固定値が必要 */
-    height: 150px;
+    /* structure */
+    height: 240px;
   }
 }

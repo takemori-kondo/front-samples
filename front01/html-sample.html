@@ -55,65 +55,72 @@ ________________________________________________________________________________
 -->
 
 <body>
-  <div id="app" class="ly-auto-height-site-container">
-    <header class="ly-sticky-header skn-base-negative skn-vertical-box-shadow">
-      <div class="site-header-pc">
-        <div>サイトタイトル</div>
-        <nav>
-          <ul class="ly-horizontal-list">
+  <div id="app" class="ly-flex-container-100vh">
+    <header class="ly-sticky-header skn-glass skn-vertical-box-shadow">
+      <div class="ly-displayed-on-pc site-header-pc">
+        <div class="ly-absolute-left site-title">
+          <div class="skn-brand-positive site-title__title">ここはサイトタイトル</div>
+          <div class="skn-brand-positive site-title__subtitle">ARUI HA LOGO</div>
+        </div>
+        <nav class="ly-absolute-right site-menu-pc">
+          <ul class="site-menu-pc__list">
             <li><a href="#nav1">メニュー1</a></li>
             <li><a href="#nav2">メニュー2</a></li>
             <li><a href="#nav3">メニュー3</a></li>
             <li><a href="#nav4">メニュー4</a></li>
             <li><a href="#nav5">メニュー5</a></li>
             <li><a href="#nav6">メニュー6</a></li>
-            <li><a href="#nav7">メニュー7</a></li>
           </ul>
         </nav>
       </div>
-      <div class="site-header-mobile">
+      <div class="ly-displayed-on-mobile site-header-mobile">
         <input type="checkbox" id="site-menu-mobile-state">
         <div class="site-menu-mobile-state__sibling">
-          <div class="ly-absolute-left site-title-mobile">サイトタイトル</div>
           <div class="ly-absolute-right">
             <label class="hamburger-container-40px" for="site-menu-mobile-state">
               <span
-                class="hamburger-container-40px__line-top___ skn-hamburger-lines anm-hamburger-lines skn-base-reverse-negative">
+                class="hamburger-container-40px__line-top___ skn-hamburger-lines anm-hamburger-lines skn-brand-negative">
               </span>
               <span
-                class="hamburger-container-40px__line_______ skn-hamburger-lines anm-hamburger-lines skn-base-reverse-negative">
+                class="hamburger-container-40px__line_______ skn-hamburger-lines anm-hamburger-lines skn-brand-negative">
               </span>
               <span
-                class="hamburger-container-40px__line-bottom skn-hamburger-lines anm-hamburger-lines skn-base-reverse-negative">
+                class="hamburger-container-40px__line-bottom skn-hamburger-lines anm-hamburger-lines skn-brand-negative">
               </span>
             </label>
           </div>
-          <div class="page-title-mobile">記事タイトル</div>
+          <div class="ly-box-centering page-title-mobile skn-brand-positive">記事タイトル７８９０１２３４５６７８９０１２３４５６７８９０</div>
         </div>
-        <nav class="ly-box-centering site-menu-mobile-state__sibling">
-          <ul class="site-menu-mobile">
-            <li><a href="#nav1">メニュー1</a></li>
-            <li><a href="#nav2">メニュー2</a></li>
-            <li><a href="#nav3">メニュー3</a></li>
-            <li><a href="#nav4">メニュー4</a></li>
-            <li><a href="#nav5">メニュー5</a></li>
-            <li><a href="#nav6">メニュー6</a></li>
-            <li><a href="#nav7">メニュー7</a></li>
-          </ul>
+        <nav class="site-menu-mobile-state__sibling">
+          <div class="site-menu-mobile">
+            <div class="site-title">
+              <div class="skn-brand-positive site-title__title">ここはサイトタイトル</div>
+              <div class="skn-brand-positive site-title__subtitle">ARUI HA LOGO</div>
+            </div>
+            <ul class="ly-box-right site-menu-mobile__list">
+              <li><a href="#nav1">メニュー1</a></li>
+              <li><a href="#nav2">メニュー2</a></li>
+              <li><a href="#nav3">メニュー3</a></li>
+              <li><a href="#nav4">メニュー4</a></li>
+              <li><a href="#nav5">メニュー5</a></li>
+              <li><a href="#nav6">メニュー6</a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
-    <main class="ly-auto-height-site-main site-main ly-box-centering skn-base-positive">
+    <main class="ly-flex-1">
       <a class="ly-hack-anchor" id="nav1"></a>
       <section>
-        <header class="ly-subarea-of-main">
-          <h1>記事タイトル</h1>
+        <header class="ly-displayed-on-pc">
+          <h1 class="ly-main-top page-title-pc skn-brand-negative">記事タイトル７８９０１２３４５６７８９０１２３４５６７８９０</h1>
         </header>
-        <div class="ly-subarea-of-main">
+        <div class="main-content">
           <a class="ly-hack-anchor" id="nav2"></a>
-          <section class="ly-content-section">
+          <section class="content-section">
             <header>
-              <h2>グルーピングコンテンツ(ブロックレベル要素)(使用頻度が低いものはコメントアウト)</h2>
+              <h2>グルーピングコンテンツ</h2>
+              <div>別名、ブロックレベル要素。使用頻度が低いものはコメントアウトしてあります。</div>
             </header>
             <div>
               <p>(p)段落として使用します。
@@ -144,23 +151,23 @@ ________________________________________________________________________________
               <!-- <figure>
                 <figcaption>挿絵、図のキャプション</figcaption>
               </figure> -->
-              <div>(div)最も汎用的なまとまりを定義するために使用します。
+              <div>(div)汎用的なまとまりに使用します。
                 <br>実際には、Webデザインのために使用します。
-                <br>従来ではdivだった部分の幾つかは、header, footer, main, 及びセクションコンテンツに置き換えることができます。
+                <br>特定の用途では、header, footer, main, 及びセクションコンテンツを代わりに検討してください。
               </div>
             </div>
-            <footer>
-              <p>"グルーピングコンテンツ(ブロックレベル要素)(使用頻度が低いものはコメントアウト)"に対するフッター</p>
+            <footer class="skn-inline-right">
+              <p>"グルーピングコンテンツ"に対するフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav3"></a>
-          <section class="ly-content-section">
+          <section class="content-section">
             <header>
-              <h2>テキスト修飾要素(インライン要素)(使用頻度が低いものはコメントアウト)</h2>
+              <h2>テキスト修飾要素</h2>
+              <div>別名、インライン要素。使用頻度が低いものはコメントアウトしてあります。</div>
             </header>
             <div>
-              <p>ここから説明が始まります。
-                <br>(br)改行を明示します。
+              <p>(br)改行を明示します。
                 <br>(a)リンクを設定します。<a href="https://www.w3.org/TR/html52/semantics.html#semantics">W3C公式サイトのHTML5.2(4. The
                   elements of HTML)</a>
                 <br>(em)有無によって<em>意味</em>が変わってくるニュアンスや強勢を明示する際に使用します。(*)「メイリオ」では、日本語は斜体になりません。
@@ -189,15 +196,14 @@ ________________________________________________________________________________
                 <!-- <br>(wbr)改行しても良い箇所<wbr>であることを示します。
                                 <br><del>(del)恒久的な旧情報を表します。</del>
                                 <br><ins>(ins)恒久的な追記内容を表します。</ins> -->
-                <br>ここまで全てP要素です。
               </p>
             </div>
-            <footer>
-              <p>"テキスト修飾要素(インライン要素)(使用頻度が低いものはコメントアウト)"に対するフッター</p>
+            <footer class="skn-inline-right">
+              <p>"テキスト修飾要素"に対するフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav4"></a>
-          <section class="ly-content-section">
+          <section class="content-section">
             <header>
               <h2>埋め込みコンテンツ</h2>
             </header>
@@ -234,12 +240,12 @@ ________________________________________________________________________________
               <br>♪魔法のクッキング
               <br>音楽提供元：<a href="http://musmus.main.jp/">フリーBGM・音楽素材MusMus</a>
             </div>
-            <footer>
+            <footer class="skn-inline-right">
               <p>"埋め込みコンテンツ"に対するフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav5"></a>
-          <section class="ly-content-section">
+          <section class="content-section">
             <header>
               <h2>表形式</h2>
             </header>
@@ -266,15 +272,20 @@ ________________________________________________________________________________
                     <td>768</td>
                     <td>2</td>
                   </tr>
+                  <tr>
+                    <td>iPad mini 1～5(横)</td>
+                    <td>1024</td>
+                    <td>2</td>
+                  </tr>
                 </table>
               </div>
             </div>
-            <footer>
+            <footer class="skn-inline-right">
               <p>"表形式"に対するフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav6"></a>
-          <section class="ly-content-section">
+          <section class="content-section">
             <header>
               <h2>Formsコンテンツ</h2>
             </header>
@@ -317,12 +328,12 @@ ________________________________________________________________________________
                 <button type="submit" tabindex="70" accesskey="s">送信</button>
               </form>
             </div>
-            <footer>
+            <footer class="skn-inline-right">
               <p>"Formsコンテンツ"に対するフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav7"></a>
-          <section class="ly-content-section">
+          <section class="content-section">
             <header>
               <h2>インタラクティブコンテンツ</h2>
             </header>
@@ -346,17 +357,17 @@ ________________________________________________________________________________
                 </ul>
               </details>
             </div>
-            <footer>
+            <footer class="skn-inline-right">
               <p>"インタラクティブコンテンツ"に対するフッター</p>
             </footer>
           </section>
         </div>
-        <footer class="ly-subarea-of-main">
+        <footer class="main-content skn-inline-right">
           <p>"記事タイトル"に対するフッター</p>
         </footer>
       </section>
     </main>
-    <footer class="site-footer skn-base-negative">
+    <footer class="site-footer skn-brand-negative">
       <div class="skn-inline-centering">サイト全体に対するフッター</div>
     </footer>
   </div>
