@@ -1,0 +1,26 @@
+<!--
+  下記ページをベースにしています
+  https://angular.jp/guide/attribute-directives
+-->
+<!--
+- html属性を自作するための機能
+- ディレクティブに@Input()や@Output()、@HostListener()を定義可能 
+    - @Input()や@Output()は、付与したタグにさら属性やイベントを足す
+    - @HostListener('eventName', ['$event'])は、付与したタグから発生するイベントをフックできる
+        - eventNameはonなし。Built-in Htmlイベントディレクティブと対応
+        - 例：@HostListener('click', ['$event'])
+-->
+
+<h1>My First Attribute Directive</h1>
+
+<h2>Pick a highlight color</h2>
+<div>
+  <input type="radio" name="colors" id="green" (click)="color='lightgreen'">
+  <label for="green">Green</label>
+  <input type="radio" name="colors" id="yellow" (click)="color='yellow'">
+  <label for="yellow">Yellow</label>
+  <input type="radio" name="colors" id="cyan" (click)="color='cyan'">
+  <label for="cyan">Cyan</label>
+</div>
+<p [appSample02Highlight]="color">Highlight me!</p>
+<p [appSample02Highlight]="color" defaultColor="violet">Highlight me too!</p>
