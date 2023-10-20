@@ -9,6 +9,7 @@ import { Sample01TemplateAlertsComponent } from './features/sample01-template-al
 import { Sample02DirectivesComponent } from './features/sample02-directives/sample02-directives.component';
 import { Sample02HighlightDirective } from './features/sample02-highlight.directive';
 import { Sample03DiComponent } from './features/sample03-di/sample03-di.component';
+import { Sample04LifecycleAndEventComponent } from './features/sample04-lifecycle-and-event/sample04-lifecycle-and-event.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { Sample03DiComponent } from './features/sample03-di/sample03-di.componen
     Sample01TemplateAlertsComponent,
     Sample02DirectivesComponent,
     Sample02HighlightDirective,
-    Sample03DiComponent
+    Sample03DiComponent,
+    Sample04LifecycleAndEventComponent
   ],
   imports: [
     BrowserModule,
