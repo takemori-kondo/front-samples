@@ -10,6 +10,10 @@ import { Sample02DirectivesComponent } from './features/sample02-directives/samp
 import { Sample02HighlightDirective } from './features/sample02-highlight.directive';
 import { Sample03DiComponent } from './features/sample03-di/sample03-di.component';
 import { Sample04LifecycleAndEventComponent } from './features/sample04-lifecycle-and-event/sample04-lifecycle-and-event.component';
+import { Sample05RoutingComponent } from './features/sample05-routing/sample05-routing.component';
+import { BaseRouteReuseStrategy, RouteReuseStrategy } from '@angular/router';
+
+class shouldReuseRouteTrueStrategy extends BaseRouteReuseStrategy { constructor() { super(); this.shouldReuseRoute = function () { return false; }; } }
 
 @NgModule({
   declarations: [
@@ -19,14 +23,17 @@ import { Sample04LifecycleAndEventComponent } from './features/sample04-lifecycl
     Sample02DirectivesComponent,
     Sample02HighlightDirective,
     Sample03DiComponent,
-    Sample04LifecycleAndEventComponent
+    Sample04LifecycleAndEventComponent,
+    Sample05RoutingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: shouldReuseRouteTrueStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
