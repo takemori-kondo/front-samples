@@ -12,6 +12,8 @@ import { Sample03DiComponent } from './features/sample03-di/sample03-di.componen
 import { Sample04LifecycleAndEventComponent } from './features/sample04-lifecycle-and-event/sample04-lifecycle-and-event.component';
 import { Sample05RoutingComponent } from './features/sample05-routing/sample05-routing.component';
 import { BaseRouteReuseStrategy, RouteReuseStrategy } from '@angular/router';
+import { Sample06ReactiveFormsComponent } from './features/sample06-reactive-forms/sample06-reactive-forms.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 class shouldReuseRouteTrueStrategy extends BaseRouteReuseStrategy { constructor() { super(); this.shouldReuseRoute = function () { return false; }; } }
 
@@ -24,12 +26,14 @@ class shouldReuseRouteTrueStrategy extends BaseRouteReuseStrategy { constructor(
     Sample02HighlightDirective,
     Sample03DiComponent,
     Sample04LifecycleAndEventComponent,
-    Sample05RoutingComponent
+    Sample05RoutingComponent,
+    Sample06ReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: shouldReuseRouteTrueStrategy }
