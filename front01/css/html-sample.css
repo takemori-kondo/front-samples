@@ -192,14 +192,14 @@ textarea {
   --base-brand-color: #253958;
   --base-mono-color: #28282f;
   --base-bg-color: #fffefe;
-  --base-bg-color-glass: #fffefea0;
+  --base-bg-color-glass: #fffefec0;
   --base-bg-color-glass2: #fffefed0;
   --base-link-color: #2188ff;
 }
 
 html {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.8;
   font-family: sans-serif;
   color: var(--base-mono-color);
   background-color: var(--base-bg-color);
@@ -422,8 +422,7 @@ mark {
   margin-left: auto;
   margin-right: auto;
   /* structure */
-  width: 95%;
-  min-width: 375px;
+  width: 90%;
 }
 
 .site-footer {
@@ -460,18 +459,18 @@ e.g.
 .hamburger-container-40px__line-bottom {
   display: block;
   position: absolute;
-  width: 30px;
+  width: 20px;
   content: '';
 }
 
 .hamburger-container-40px__line-top___ {
   /* align-items: center & absoluteなので、2倍の値が必要 */
-  margin-top: -20px;
+  margin-top: -15px;
 }
 
 .hamburger-container-40px__line-bottom {
   /* align-items: center & absoluteなので、2倍の値が必要 */
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 /*********** hamburger skin ***********/
@@ -491,7 +490,7 @@ e.g.
 }
 
 #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling .hamburger-container-40px__line-top___ {
-  transform: rotate(45deg) scaleX(1.2) translate(6px, 7px);
+  transform: rotate(45deg) scaleX(1.2) translate(3px, 7px);
 }
 
 #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling .hamburger-container-40px__line_______ {
@@ -499,7 +498,7 @@ e.g.
 }
 
 #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling .hamburger-container-40px__line-bottom {
-  transform: rotate(-45deg) scaleX(1.2) translate(6px, -7px);
+  transform: rotate(-45deg) scaleX(1.2) translate(3px, -7px);
 }
 
 
@@ -517,7 +516,7 @@ pc
   }
 
   .site-header-pc {
-    height: 54px;
+    height: 64px;
   }
 
   /********** composite blocks **********/
@@ -629,6 +628,6 @@ mobile
   #site-menu-mobile-state:checked~.site-menu-mobile-state__sibling .site-menu-mobile {
     /* height: auto; だとアニメーションが利かないため固定値が必要 */
     /* structure */
-    height: 240px;
+    height: 280px;
   }
 }
