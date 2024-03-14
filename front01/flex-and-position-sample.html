@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <link rel="canonical" href="https://site.domain/">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="keyword1,keyword2">
+  <meta name="description" content="Search engine shows this text.">
+  <meta name="author" content="Name; e-mail: name@mail.domain">
+  <meta name="copyright" content="Copyright (c) Name All Rights Reserved.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <title>flex-and-position-sample</title>
+</head>
+
+<body style="margin:0; padding:0;">
+  <div style="margin:10px; padding:10px; background-color:#ffaaaa;">
+    body-div<br>
+    margin:10px;<br>
+    padding:10px;
+    <div style="margin:10px; padding:10px; background-color:#ffffaa;">
+      body-div-div1<br>
+      margin:10px;<br>
+      padding:10px;
+    </div>
+    <div style="margin:10px; padding:10px; background-color:#aaffaa; position:relative; top:-50px; left:50px;">
+      body-div-div2(relative)<br>
+      margin:10px;<br>
+      padding:10px;<br>
+      position:relative;<br>
+      top:-50px; left:50px;
+      <div style="margin:10px; padding:10px; background-color:#aaffff;">
+        body-div-div2-div1<br>
+        margin:10px;<br>
+        padding:10px;
+      </div>
+      <div style="margin:10px; padding:10px; background-color:#aaaaff; position:relative; top:-50px; left:50px;">
+        body-div-div2-div2(relative)<br>
+        margin:10px;<br>
+        padding:10px;<br>
+        position:relative;<br>
+        top:-50px; left:50px;
+      </div>
+      <div style="margin:10px; padding:10px; background-color:#ffaaff; position:absolute; top:20px; right:20px; font-size:xx-small;">
+        body-div-div2-div3(absolute)<br>
+        margin:10px;<br>
+        padding:10px;<br>
+        position:absolute;<br>
+        top:20px; right:20px;
+      </div>
+    </div>
+    <div style="margin:10px; padding:10px; background-color: #66aa66; position:absolute; bottom:10px; right:10px;">
+      body-div-div3(absolute)<br>
+      margin:10px;<br>
+      padding:10px;<br>
+      position:absolute;<br>
+      bottom:10px; right:10px;
+      <div style="margin:10px; padding:10px; background-color:#66aaaa;">
+        body-div-div3-div1<br>
+        margin:10px;<br>
+        padding:10px;
+      </div>
+      <div style="margin:10px; padding:10px; background-color:#6666aa; position:relative; top:-50px; left:50px;">
+        body-div-div3-div2(relative)<br>
+        margin:10px;<br>
+        padding:10px;<br>
+        position:relative;<br>
+        top:-50px; left:50px;
+      </div>
+      <div style="margin:10px; padding:10px; background-color:#aa66aa; position:absolute; top:20px; right:20px; font-size:xx-small">
+        body-div-div3-div3(absolute)<br>
+        margin:10px;<br>
+        padding:10px;<br>
+        position:absolute;<br>
+        top:20px; right:20px;
+      </div>
+    </div>
+    <div style="margin:10px; padding:10px; background-color: #ccffcc; display:flex;">
+      body-div-div4(flex root)<br>
+      margin:10px;<br>
+      padding:10px;<br>
+      display:flex;
+      <div style="margin:10px; padding:10px; background-color: #ccffff;">
+        body-div-div4-div1<br>
+        margin:10px;<br>
+        padding:10px;
+      </div>
+      <div style="margin:10px; padding:10px; background-color: #ccccff; position:relative; top:-50px; left:50px;">
+        body-div-div4-div2(relative)<br>
+        margin:10px;<br>
+        padding:10px;<br>
+        position:relative;<br>
+        top:-50px; left:50px;
+      </div>
+      <div style="margin:10px; padding:10px; background-color: #ffccff; position:absolute; top:20px; right:20px; font-size:xx-small;">
+        body-div-div4-div3(absolute)<br>
+        margin:10px;<br>
+        padding:10px;<br>
+        position:absolute;<br>
+        top:20px; right:20px;
+      </div>
+      <div style="margin:10px; padding:10px; background-color: #ffcccc;">
+        body-div-div4-div4<br>
+        margin:10px;<br>
+        padding:10px;
+      </div>
+    </div>
+    <div style="margin:10px; padding:10px; background-color: #cccccc;">
+      body-div-div5<br>
+      margin:10px;<br>
+      padding:10px;
+    </div>
+    <div style="margin:10px; padding:10px; background-color: #cccccc;">
+      body-div-div6<br>
+      margin:10px;<br>
+      padding:10px;
+    </div>
+    要約<br>
+    ・flex内のabsolute要素はflexから除外される<br>
+    ・relativeやabsoluteは、positionがstatic以外の直近の祖先の要素を起点にする<br>
+    ・absoluteのbottomは、positionがstatic以外の直近の祖先の要素が存在しない場合、スクロールyが0の時のViewportを基準にする<br>
+    ・absoluteのbottomは、positionがstatic以外の直近の祖先の要素が存在する場合、その要素の包括ブロックを基準にする<br>
+    ・absoluteのtopは、body要素にposition:relative;を指定したものが基準になる場合、body直下の要素のmarginの影響を受ける
+  </div>
+</body>
+
+</html>
