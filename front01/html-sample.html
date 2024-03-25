@@ -144,9 +144,9 @@ ________________________________________________________________________________
               </ol>
               <dl>
                 <dt>(dl-dt)説明リストのタームです。</dt>
-                <dd>(dl-dd)タームに対する詳細です。</dd>
-                <dd>(dl-dd)タームに対する詳細です。</dd>
-                <dd>(dl-dd)タームに対する詳細です。</dd>
+                <dd>(dl-dd)タームの詳細です。</dd>
+                <dd>(dl-dd)タームの詳細です。</dd>
+                <dd>(dl-dd)タームの詳細です。</dd>
               </dl>
               <!-- <figure>
                 <figcaption>挿絵、図のキャプション</figcaption>
@@ -157,7 +157,7 @@ ________________________________________________________________________________
               </div>
             </div>
             <footer class="skn-inline-right">
-              <p>"グルーピングコンテンツ"に対するフッター</p>
+              <p>"グルーピングコンテンツ"のフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav3"></a>
@@ -183,8 +183,8 @@ ________________________________________________________________________________
                                 <br>(var)<var>X</var>個
                                 <br>(samp)コンピュータの出力内容など。<samp>404 Not Found</samp>
                                 <br>(kbd)キーボード入力<kbd>ctrl + alt + delete</kbd>
-                                <br>(sub)下付き表現が必須な形式に対する利用 H<sub>2</sub>O
-                                <br>(sup)上付き表現が必須な形式に対する利用 E = mc<sup>2</sup> -->
+                                <br>(sub)下付き表現が必須な形式の利用 H<sub>2</sub>O
+                                <br>(sup)上付き表現が必須な形式の利用 E = mc<sup>2</sup> -->
                 <br>(i)物語などで、特殊な語りなど。<i>You are enough just as you are.</i>(*)
                 <br>(b)<b>太字</b>にしたい場合。
                 <br>(u)<u>下線</u>を引きたい場合。
@@ -199,7 +199,7 @@ ________________________________________________________________________________
               <p>(*)「メイリオ」では、日本語は斜体になりません。</p>
             </div>
             <footer class="skn-inline-right">
-              <p>"テキスト修飾要素"に対するフッター</p>
+              <p>"テキスト修飾要素"のフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav4"></a>
@@ -241,7 +241,7 @@ ________________________________________________________________________________
               <br>音楽提供元：<a href="http://musmus.main.jp/">フリーBGM・音楽素材MusMus</a>
             </div>
             <footer class="skn-inline-right">
-              <p>"埋め込みコンテンツ"に対するフッター</p>
+              <p>"埋め込みコンテンツ"のフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav5"></a>
@@ -281,7 +281,7 @@ ________________________________________________________________________________
               </div>
             </div>
             <footer class="skn-inline-right">
-              <p>"表形式"に対するフッター</p>
+              <p>"表形式"のフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav6"></a>
@@ -290,8 +290,8 @@ ________________________________________________________________________________
               <h2>Formsコンテンツ</h2>
             </header>
             <div>
-              <form method="POST" class="half-width-inputs">
-                <fieldset>
+              <form method="POST" class="full-width-inputs">
+                <fieldset class="default-fieldset">
                   <legend>入力項目</legend>
                   <input type="hidden" name="mode" id="mode" value="new">
                   <div class="ly-input-container">
@@ -325,11 +325,13 @@ ________________________________________________________________________________
                       accesskey="t" required="required" class="skn-simple-border">例：〇〇サービスの××について</textarea>
                   </div>
                 </fieldset>
-                <button type="submit" tabindex="70" accesskey="s">送信</button>
+                <div class="skn-inline-right">
+                  <button type="submit" tabindex="70" accesskey="s">送信</button>
+                </div>
               </form>
             </div>
             <footer class="skn-inline-right">
-              <p>"Formsコンテンツ"に対するフッター</p>
+              <p>"Formsコンテンツ"のフッター</p>
             </footer>
           </section>
           <a class="ly-hack-anchor" id="nav7"></a>
@@ -358,17 +360,19 @@ ________________________________________________________________________________
               </details>
             </div>
             <footer class="skn-inline-right">
-              <p>"インタラクティブコンテンツ"に対するフッター</p>
+              <p>"インタラクティブコンテンツ"のフッター</p>
             </footer>
           </section>
         </div>
         <footer class="main-content skn-inline-right">
-          <p>"記事タイトル"に対するフッター</p>
+          <p>"記事タイトル"のフッター</p>
         </footer>
       </section>
     </main>
-    <footer class="site-footer skn-brand-negative">
-      <div class="skn-inline-centering">サイト全体に対するフッター</div>
+    <footer class="skn-brand-negative">
+      <div class="site-footer">
+        <div class="skn-inline-centering">サイト全体のフッター</div>
+      </div>
     </footer>
   </div>
 </body>
