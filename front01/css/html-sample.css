@@ -13,22 +13,32 @@ ________________________________________________________________________________
 ________________________________________________________________________________
 ### 1.0. 概要
 
-前提・基本プラクティス
+文法・概念
 
 1. ルールセットの書式（セレクタ、cssプロパティ、値）
 2. CSS詳細度（!important、インライン、id、クラス等、要素、全称）
 3. box model
-4. display: flex;、flex-wrap: wrap;、justify-content: center;、gap: 0 1.5rem;
-5. position: absolute;、right: 0;
-6. @media(max-width: 767px){ ... }がモバイル対応の基本
-7. cssファイルを利用する。インラインやstyle要素を避ける
-8. classセレクタ、idセレクタ、input[type="text"]など、:link、:active、:visitedを使う
-9. 結合子（親子関係など）は使いすぎない
-10. font-size指定は理由がなければremで設定
-11. !importantを避ける
-12. * { box-sizing: border-box; }する（直感的にデザイン可能になる）
-13. normalizeする。normalize.cssを使うと便利
-14. 固定ヘッダするならsticky&top。さらにページ内リンクがあるならanchor HACK
+4. flex
+    - 例
+        - display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1.5rem;
+    - 注意点
+        - flexアイテムがwidthを超過する場合、包含ブロックを突き抜ける
+        - 上記が発生しviewportの100%を超えている場合、無関係なposition: sticky;のモバイル挙動がおかしくなる
+5. position
+    - 例
+        - position: absolute; right: 0;
+6. @media(max-width: 767px){ ... }
+
+基本プラクティス
+
+1. cssファイルを利用する。インラインやstyle要素を避ける
+2. classセレクタ、idセレクタ、input[type="text"]など、:link、:active、:visitedを使う
+3. 結合子（親子関係など）は使いすぎない
+4. font-size指定は理由がなければremで設定
+5. !importantを避ける
+6. * { box-sizing: border-box; }する（直感的にデザイン可能になる）
+7. normalizeする。normalize.cssを使うと便利
+8. 固定ヘッダするならsticky&top。さらにページ内リンクがあるならanchor HACK
 
 目的：打ち消しCSSの最小化、CSS優先度地獄に陥らない
 
