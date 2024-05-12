@@ -19,12 +19,12 @@ https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...
 Array.prototype.forEach()  
 https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
-|文法          |説明
-|--------------|----------------------------------------------------------------
-|for           | OK
-|for in        | 非推奨（そもそも配列に対して使用する機能ではない）
-|for of        | 他言語のfoeachと等価
-|Array.forEach | 非推奨
+|文法                    |説明
+|------------------------|----------------------------------------------------------------
+|for                     | OK
+|for in                  | 非推奨（そもそも配列に対して使用する機能ではない）
+|for of                  | 他言語のfoeachと等価
+|Array.prototype.forEach | 非推奨
   */
   const itemList = [{ ItemId: 1, ItemName: 'apple' }, { ItemId: 2, ItemName: 'banana' }, { ItemId: 3, ItemName: 'cherry' }];
   console.log('"for" sample');
@@ -39,6 +39,6 @@ https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Ar
   for (const item of itemList) {
     console.log(item);
   }
-  console.log('"Array.forEach" sample (非推奨)');
+  console.log('"Array.prototype.forEach" sample (非推奨)');
   itemList.forEach((item) => console.log(item));
 };

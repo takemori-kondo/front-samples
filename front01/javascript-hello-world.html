@@ -33,6 +33,9 @@ http://gihyo.jp/book/2016/978-4-7741-8411-1
 Front-End Checklist  
 https://github.com/thedaviddias/Front-End-Checklist
 
+JavaScript のサンプルコードの作成ガイドライン  
+https://developer.mozilla.org/ja/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript
+
 ________________________________________________________________________________
 ## 1. HtmlとJavascript
 ________________________________________________________________________________
@@ -93,15 +96,46 @@ https://www.smashingmagazine.com/2008/09/jquery-examples-and-best-practices/
     - 主要なブラウザでも動作するよう、ブラウザの互換性に気をつかう
 2. 「そのhtml用script」は、window.load()、jqueryの$(function() { ... });
 
-jsの固有挙動とプラクティス要約
+*1 ただし、3大frameworkが一般化した2022年現在では、あまり重視されない
+*2 2011年ごろから普及したスクロール/パララクスデザインはこの限りではない
+```
+
+jsの固有挙動プラクティス、推奨コーディング規約
+
+```text
 1. hoisting回避（グローバルに変数・処理を書くな。window.load()などに処理を書け）
 2. bubbling理解（イベントはハンドルされるまで伝播する）
 3. scope勘違い回避（letとconst以外の変数使うな）
-4. prototypeは不要（最近はclass糖衣構文があるので不要）
+4. prototypeベースOOPのプラクティス理解は不要（最近はclass糖衣構文があるので不要）
 5. 常にstrict
-
-*1 ただし、3大frameworkが一般化した2022年現在では、あまり重視されない
-*2 2011年ごろから普及したスクロール/パララクスデザインはこの限りではない
+6. クラスはUpperCamel、変数や関数はcamelCase
+7. 厳密な比較を使用する
+    - OK ===, !==
+    - NG ==, !=
+8. for、for ofのみ使用する
+    - OK for
+    - OK for of
+    - NG for in
+    - NG Array.prototype.forEach
+9. functionキーワードは宣言とクラス糖衣構文のみで使い、匿名関数（ラムダ）ではアロー関数を使用する
+    - OK function foo(arg) { ... }
+    - OK const foo = (arg) => { ... };
+    - NG const foo = function(arg) { ... };
+    - NG const foo = new Function(...);
+        - Class糖衣構文を使うこと
+10. メンバの存在チェック
+    - OK Object.hasOwn(obj, 'memberName')
+    - OK Object.prototype.hasOwnProperty.call(obj, 'memberName')
+    - NG obj.hasOwnProperty('memberName')
+    - NG 'memberName' in obj
+11. イベントはイベントハンドラ属性を使ってよい。ただし単純な使用に限る
+    - OK onclick="foo(event)"
+    - addEventListenerの利用を検討し始めた時点で、代わりにjsフレームワークを導入すること
+12. 致命的な欠陥仕様を知ること
+    - NaN === NaN // false
+    - parseInt('false', 16) // 250.16進数fa=250なため
+    - 「メンバが存在しないこと」「undefinedなメンバが存在すること」では挙動に差が出ること
+    - writable, enumerable, configurableと、for inの複雑怪奇な仕様
 ```
 -->
 
