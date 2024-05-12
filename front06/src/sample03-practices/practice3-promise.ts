@@ -1,4 +1,39 @@
 export { }
+/*
+# Promiseの説明
+
+1. (resolve, reject) => { ... }をコンストラクター引数に取る
+2. resolveを実行するとthenに飛ぶ
+3. rejectを実行するとcatchに飛ぶ
+4. thenやcatchはそのターンには呼ばれない
+5. thenやcatchはチェーン可能
+6. 履行済や拒否済のPromiseでも、後からthenやcatchをチェーン可能
+    - 履行中になりチェーン内容を実行する
+7. 単一のPromiseに複数回（チェーンではなく）直接thenすると、並列になる
+8. Task.WhenAll()と同じ内容は、Promise.all()
+
+```js
+function delay(delay_ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(delay_ms), delay_ms);
+    console.log("delay started");
+  });
+}
+const myPromise = delay(1000);
+myPromise
+  .then(result => {
+    console.log(result + "ms waited!");
+    return delay(2000);
+  })
+  .then(result => {
+    console.log(result + "ms waited!");
+  })
+  .catch(result => {
+    console.log("rejected!");
+  });
+```
+ */
+
 declare global {
   interface PromiseConstructor {
     /**
