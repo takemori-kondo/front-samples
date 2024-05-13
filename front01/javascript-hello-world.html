@@ -137,6 +137,63 @@ jsの固有挙動プラクティス、推奨コーディング規約
     - 「メンバが存在しないこと」「undefinedなメンバが存在すること」では挙動に差が出ること
     - writable, enumerable, configurableと、for inの複雑怪奇な仕様
 ```
+
+________________________________________________________________________________
+### 1.4. JavascriptのDeepな仕様
+
+Object - JavaScript | MDN  
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object#オブジェクト変換
+
+プリミティブ型 vs ラッパーオブジェクト
+
+```text
+ラッパーオブジェクトメンバへのアクセスでAuto-boxingが発生する
+C#、Javaどちらとも挙動が異なる
+```
+
+prototype拡張 vs defineProperty
+
+```js
+// どちらも組み込み型への適用はアンチパターン（Prototype Pollution）
+// なおTypescriptの場合はinterfaceベースで追加する必要がある
+Object.prototype.foo = "FOOOOO!";
+Object.defineProperty(String.prototype, "bar",
+    {
+        value: "BARRRR!",
+        configurable:false,
+        enumerable: true,
+        writable: false
+    });
+const str = 'string literal';
+console.log(str.foo);
+console.log(str.bar);
+```
+
+Class糖衣構文の実際
+
+```js
+/*
+class Animal {
+    static staticMethod() { console.log("Animal Class!"); }
+    constructor(name) {
+        this.name = name;
+    }
+    instanceMethod() { console.log("I'm " + this.name); }
+}
+*/
+const Animal = function(name) {
+    if (!this instanceof Animal) {
+        return new Animal(name);
+    }
+    this.name = name;
+};
+Animal.staticMethod = function() { console.log("Animal Class!"); }
+Animal.prototype.instanceMethod = function() { console.log("I'm " + this.name); }
+
+Animal.staticMethod();
+const dog = new Animal("pochi");
+dog.instanceMethod();
+```
 -->
 
 <body>
